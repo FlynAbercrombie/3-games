@@ -77,7 +77,7 @@ var ace_entered_4 = 0;
 var ace_entered_5 = 0;
 var shown = 0;
 // load the menu buttons into a variable
-//************************************** ../Coding/IMAGES works with opening the file, ../IMAGES works with live preview**********************************
+
 var BlackJack_button_highlighted = new Image();
 BlackJack_button_highlighted.src = "../IMAGES/BlackJack-highlighted.png";
 var BlackJack_button_unhighlighted = new Image();
