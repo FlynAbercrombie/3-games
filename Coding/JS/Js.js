@@ -1,45 +1,46 @@
 /* vvvvvvvvvvvvvvvvTODO listvvvvvvvvvvvvvvv
 All:
-Make an instructions screen
+1.Make an instructions screen
 
 BlackJack:
-add a cash system to black jack
-put boxes around certain elements
-make it so the user has to input either 11 or 1 when they get an ace
-remove quit option from playing screen
-make a game over screen
-make it so if money <= 0 the user is displayed the game over screen (retry or exit to main menu)
-add quit option to game over screen
-fix the bug with user_score_added_2 being where user_score_added_3 should be (line 533, 641, 749)
+1.add a cash system to black jack
+2.put boxes around certain elements
+3.make it so the user has to input either 11 or 1 when they get an ace
+4.remove quit option from playing screen
+5.make a game over screen
+6.make it so if money <= 0 the user is displayed the game over screen (retry or exit to main menu)
+7.add quit option to game over screen
+8.fix the bug with user_score_added_2 being where user_score_added_3 should be (line 533, 641, 749)
+
 
 SimonSays:
-change colours of the boxes
-make an array to store pattern
-make an array to store user input
-make the program randomly select box
-add score
-add gameover if the user gets the pattern wrong
+1.change colours of the boxes
+2.make an array to store pattern
+3.make an array to store user input
+4.make the program randomly select box
+5.add score
+6.add gameover if the user gets the pattern wrong
 
 
 Space Invaders:
-draw more aliens
-add the ability to move
-move aliens side to side
-move aliens down when they hit walls
-add the ability to shoot
-add score
-add game over when aliens touch the ground
+1.draw more aliens
+2.add the ability to move
+3.move aliens side to side
+4.move aliens down when they hit walls
+5.add the ability to shoot
+6.add score
+7.add game over when aliens touch the ground
 
 
 final touches:
-remember to use beautify.io to clean up project
-add comments to everything that needs clarification
+1.remember to use beautify.io to clean up project
+2.add comments to everything that needs clarification
 
 if i have enough time:
-stylize buttons
-sounds
-animations (moving images)
-make it HD
+1.stylize buttons
+2.sounds
+3.animations (moving images)
+4.make it HD
 ^^^^^^^^^^^^^^^^^ TODO LIST ^^^^^^^^^^^^^^^^*/
 // link the canvas HTML element
 var canvas = document.getElementById('canvas');
