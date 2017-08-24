@@ -1178,7 +1178,7 @@ function BlackJack() {
                 brush.fillText("Draw", 10, 60);
                 brush.fillStyle = "black";
                 brush.fillText("Done", 10, 70);
-                brush.fillText("Quit", 10, 80);
+                brush.fillText("Quit" , 10, 80);
             };
             if (BlackJack_menu_item == 2) {
                 brush.font = "10px Arial";
