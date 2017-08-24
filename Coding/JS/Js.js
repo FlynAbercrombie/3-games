@@ -1,22 +1,45 @@
 /* vvvvvvvvvvvvvvvvTODO listvvvvvvvvvvvvvvv
-BlackJack
+All:
+Make an instructions screen
+
+BlackJack:
 add a cash system to black jack
 put boxes around certain elements
 make it so the user has to input either 11 or 1 when they get an ace
+remove quit option from playing screen
+make a game over screen
 make it so if money <= 0 the user is displayed the game over screen (retry or exit to main menu)
+add quit option to game over screen
+fix the bug with user_score_added_2 being where user_score_added_3 should be (line 533, 641, 749)
 
-SimonSays
+SimonSays:
 change colours of the boxes
 make an array to store pattern
 make an array to store user input
+make the program randomly select box
+add score
+add gameover if the user gets the pattern wrong
 
 
-Space Invaders
-start Space invaders
+Space Invaders:
+draw more aliens
+add the ability to move
+move aliens side to side
+move aliens down when they hit walls
+add the ability to shoot
+add score
+add game over when aliens touch the ground
 
-final touches
+
+final touches:
 remember to use beautify.io to clean up project
 add comments to everything that needs clarification
+
+if i have enough time:
+stylize buttons
+sounds
+animations (moving images)
+make it HD
 ^^^^^^^^^^^^^^^^^ TODO LIST ^^^^^^^^^^^^^^^^*/
 // link the canvas HTML element
 var canvas = document.getElementById('canvas');
