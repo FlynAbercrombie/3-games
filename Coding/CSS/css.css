@@ -1,0 +1,19 @@
+body {
+    background-color: rgba(21, 21, 21, 0.8);
+}
+.text {
+    color:white;
+    text-align: center;
+}
+#sub, #rules {
+    font-size: 20px;
+}
+
+#canvas {
+    border: 5px solid red;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 500px;
+    height: 500px;
+}
