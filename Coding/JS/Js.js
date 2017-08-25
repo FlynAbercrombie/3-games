@@ -76,8 +76,6 @@ var ace_entered_3 = 0;
 var ace_entered_4 = 0;
 var ace_entered_5 = 0;
 var shown = 0;
-
-var SimonSays_colour = 1
 // load the menu buttons into a variable
 
 var BlackJack_button_highlighted = new Image();
@@ -188,7 +186,7 @@ function game() {
 function BlackJack() {
     //change the title of the webpage
     document.title = "Black Jack"
-    //change the header of the webpage
+        //change the header of the webpage
     title.innerText = "Black Jack";
     //remove the subtitle and leave a gap
     sub.innerHTML = "<br>";
@@ -209,50 +207,50 @@ function BlackJack() {
     function BlackJack_Draw() {
         //draw the background
         brush.drawImage(BlackJack_background, 0, 0)
-        // store all the cards into an array
-        //ace
+            // store all the cards into an array
+            //ace
         card_select[0] = new Image();
         card_select[0].src = "../IMAGES/Cards/ace_card.png"
-        //2
+            //2
         card_select[1] = new Image();
         card_select[1].src = "../IMAGES/Cards/2_card.png"
-        //3
+            //3
         card_select[2] = new Image();
         card_select[2].src = "../IMAGES/Cards/3_card.png"
-        //4
+            //4
         card_select[3] = new Image();
         card_select[3].src = "../IMAGES/Cards/4_card.png"
-        //5
+            //5
         card_select[4] = new Image();
         card_select[4].src = "../IMAGES/Cards/5_card.png"
-        //6
+            //6
         card_select[5] = new Image();
         card_select[5].src = "../IMAGES/Cards/6_card.png"
-        //7
+            //7
         card_select[6] = new Image();
         card_select[6].src = "../IMAGES/Cards/7_card.png"
-        //8
+            //8
         card_select[7] = new Image();
         card_select[7].src = "../IMAGES/Cards/8_card.png"
-        //9
+            //9
         card_select[8] = new Image();
         card_select[8].src = "../IMAGES/Cards/9_card.png"
-        //10
+            //10
         card_select[9] = new Image();
         card_select[9].src = "../IMAGES/Cards/10_card.png"
-        //jack
+            //jack
         card_select[10] = new Image();
         card_select[10].src = "../IMAGES/Cards/jack_card.png"
-        //queen
+            //queen
         card_select[11] = new Image();
         card_select[11].src = "../IMAGES/Cards/queen_card.png"
-        //king
+            //king
         card_select[12] = new Image();
         card_select[12].src = "../IMAGES/Cards/king_card.png"
-        //blank
+            //blank
         card_select[13] = new Image();
         card_select[13].src = "../IMAGES/Cards/blank.png"
-        // check for key presses
+            // check for key presses
         if (user_cards >= 1) {
             brush.drawImage(card_select[13], 0, 0, 50, 50);
             if (ready == 1) {
@@ -260,106 +258,106 @@ function BlackJack() {
                 shown++;
                 if (shown > 0) {
                     switch (user_card[1].src) {
-                        case card_select[0].src:
-                            setTimeout(function () {
-                                if (user_score_added_1 == 0) {
-                                    user_score_added_1++;
-                                    user_ace = parseInt(prompt("1 or 11"));
-                                    user_score = user_score + user_ace;
-                                    ace_entered_1++;
-                                    console.log(user_score);
-                                };
-                            });
-                            break;
-                        case card_select[1].src:
+                    case card_select[0].src:
+                        setTimeout(function () {
                             if (user_score_added_1 == 0) {
                                 user_score_added_1++;
-                                user_score = user_score + 2;
+                                user_ace = parseInt(prompt("1 or 11"));
+                                user_score = user_score + user_ace;
+                                ace_entered_1++;
                                 console.log(user_score);
                             };
-                            break;
-                        case card_select[2].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 3;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[3].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 4;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[4].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 5;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[5].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 6;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[6].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 7;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[7].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 8;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[8].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 9;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[9].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 10;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[10].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 10;
-                                console.log(user_score);
-                            };
-                            break;
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 10;
-                                console.log(user_score);
-                            };
-                        case card_select[11].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 10;
-                                console.log(user_score);
-                            };
-                            break;
-                        case card_select[12].src:
-                            if (user_score_added_1 == 0) {
-                                user_score_added_1++;
-                                user_score = user_score + 10;
-                                console.log(user_score);
-                            };
-                            break;
+                        });
+                        break;
+                    case card_select[1].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 2;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[2].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 3;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[3].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 4;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[4].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 5;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[5].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 6;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[6].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 7;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[7].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 8;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[8].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 9;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[9].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 10;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[10].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 10;
+                            console.log(user_score);
+                        };
+                        break;
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 10;
+                            console.log(user_score);
+                        };
+                    case card_select[11].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 10;
+                            console.log(user_score);
+                        };
+                        break;
+                    case card_select[12].src:
+                        if (user_score_added_1 == 0) {
+                            user_score_added_1++;
+                            user_score = user_score + 10;
+                            console.log(user_score);
+                        };
+                        break;
                     };
                 };
             };
@@ -369,106 +367,106 @@ function BlackJack() {
             if (ready == 1) {
                 brush.drawImage(user_card[2], 50, 0, 50, 50);
                 switch (user_card[2].src) {
-                    case card_select[0].src:
-                        setTimeout(function () {
-                            if (user_score_added_2 == 0) {
-                                user_score_added_2++;
-                                user_ace = parseInt(prompt("1 or 11"));
-                                user_score = user_score + user_ace;
-                                ace_entered_2++;
-                                console.log(user_score);
-                            };
-                        });
-                        break;
-                    case card_select[1].src:
+                case card_select[0].src:
+                    setTimeout(function () {
                         if (user_score_added_2 == 0) {
                             user_score_added_2++;
-                            user_score = user_score + 2;
+                            user_ace = parseInt(prompt("1 or 11"));
+                            user_score = user_score + user_ace;
+                            ace_entered_2++;
                             console.log(user_score);
                         };
-                        break;
-                    case card_select[2].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 3;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[3].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 4;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[4].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 5;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[5].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 6;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[6].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 7;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[7].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 8;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[8].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 9;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[9].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[10].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                    case card_select[11].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[12].src:
-                        if (user_score_added_2 == 0) {
-                            user_score_added_2++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
+                    });
+                    break;
+                case card_select[1].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 2;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[2].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 3;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[3].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 4;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[4].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 5;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[5].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 6;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[6].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 7;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[7].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 8;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[8].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 9;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[9].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[10].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                case card_select[11].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[12].src:
+                    if (user_score_added_2 == 0) {
+                        user_score_added_2++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
                 };
             };
         };
@@ -477,106 +475,106 @@ function BlackJack() {
             if (ready == 1) {
                 brush.drawImage(user_card[3], 100, 0, 50, 50)
                 switch (user_card[3].src) {
-                    case card_select[0].src:
-                        setTimeout(function () {
-                            if (user_score_added_3 == 0) {
-                                user_score_added_3++;
-                                user_ace = parseInt(prompt("1 or 11"));
-                                ace_entered_3++;
-                                user_score = user_score + user_ace;
-                                console.log(user_score);
-                            };
-                        });
-                        break;
-                    case card_select[1].src:
+                case card_select[0].src:
+                    setTimeout(function () {
                         if (user_score_added_3 == 0) {
                             user_score_added_3++;
-                            user_score = user_score + 2;
+                            user_ace = parseInt(prompt("1 or 11"));
+                            ace_entered_3++;
+                            user_score = user_score + user_ace;
                             console.log(user_score);
                         };
-                        break;
-                    case card_select[2].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 3;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[3].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 4;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[4].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 5;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[5].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 6;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[6].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 7;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[7].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 8;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[8].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 9;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[9].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[10].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                    case card_select[11].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[12].src:
-                        if (user_score_added_3 == 0) {
-                            user_score_added_3++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
+                    });
+                    break;
+                case card_select[1].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 2;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[2].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 3;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[3].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 4;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[4].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 5;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[5].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 6;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[6].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 7;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[7].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 8;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[8].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 9;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[9].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[10].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                case card_select[11].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[12].src:
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
                 };
             }
         };
@@ -585,106 +583,106 @@ function BlackJack() {
             if (ready == 1) {
                 brush.drawImage(user_card[4], 150, 0, 50, 50)
                 switch (user_card[4].src) {
-                    case card_select[0].src:
-                        setTimeout(function () {
-                            if (user_score_added_4 == 0) {
-                                user_score_added_4++;
-                                user_ace = parseInt(prompt("1 or 11"));
-                                user_score = user_score + user_ace;
-                                ace_entered_4++;
-                                console.log(user_score);
-                            };
-                        });
-                        break;
-                    case card_select[1].src:
+                case card_select[0].src:
+                    setTimeout(function () {
                         if (user_score_added_4 == 0) {
                             user_score_added_4++;
-                            user_score = user_score + 2;
+                            user_ace = parseInt(prompt("1 or 11"));
+                            user_score = user_score + user_ace;
+                            ace_entered_4++;
                             console.log(user_score);
                         };
-                        break;
-                    case card_select[2].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 3;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[3].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 4;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[4].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 5;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[5].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 6;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[6].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 7;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[7].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 8;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[8].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 9;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[9].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[10].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                    case card_select[11].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[12].src:
-                        if (user_score_added_4 == 0) {
-                            user_score_added_4++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
+                    });
+                    break;
+                case card_select[1].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 2;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[2].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 3;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[3].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 4;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[4].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 5;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[5].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 6;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[6].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 7;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[7].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 8;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[8].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 9;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[9].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[10].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                case card_select[11].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[12].src:
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
                 };
             }
         }
@@ -693,106 +691,106 @@ function BlackJack() {
             if (ready == 1) {
                 brush.drawImage(user_card[5], 200, 0, 50, 50)
                 switch (user_card[5].src) {
-                    case card_select[0].src:
-                        setTimeout(function () {
-                            if (user_score_added_5 == 0) {
-                                user_score_added_5++;
-                                user_ace = parseInt(prompt("1 or 11"));
-                                user_score = user_score + user_ace;
-                                ace_entered_5++;
-                                console.log(user_score);
-                            };
-                        });
-                        break;
-                    case card_select[1].src:
+                case card_select[0].src:
+                    setTimeout(function () {
                         if (user_score_added_5 == 0) {
                             user_score_added_5++;
-                            user_score = user_score + 2;
+                            user_ace = parseInt(prompt("1 or 11"));
+                            user_score = user_score + user_ace;
+                            ace_entered_5++;
                             console.log(user_score);
                         };
-                        break;
-                    case card_select[2].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 3;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[3].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 4;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[4].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 5;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[5].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 6;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[6].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 7;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[7].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 8;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[8].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 9;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[9].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[10].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                    case card_select[11].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
-                    case card_select[12].src:
-                        if (user_score_added_5 == 0) {
-                            user_score_added_5++;
-                            user_score = user_score + 10;
-                            console.log(user_score);
-                        };
-                        break;
+                    });
+                    break;
+                case card_select[1].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 2;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[2].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 3;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[3].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 4;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[4].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 5;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[5].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 6;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[6].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 7;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[7].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 8;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[8].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 9;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[9].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[10].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                case card_select[11].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
+                case card_select[12].src:
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
+                        user_score = user_score + 10;
+                        console.log(user_score);
+                    };
+                    break;
                 };
             };
         };
@@ -809,109 +807,110 @@ function BlackJack() {
                                     shown++;
                                     if (shown > 0) {
                                         switch (comp_card[1].src) {
-                                            case card_select[0].src:
-                                                setTimeout(function () {
-                                                    if (comp_score_added_1 == 0) {
-                                                        comp_score_added_1++;
-                                                        if (comp_score + 11 < 21) {
-                                                            comp_ace = 11;
-                                                        } else {
-                                                            comp_ace = 1;
-                                                        }
-                                                        comp_score = comp_score + comp_ace;
-                                                        console.log(comp_score);
-                                                    };
-                                                });
-                                                break;
-                                            case card_select[1].src:
+                                        case card_select[0].src:
+                                            setTimeout(function () {
                                                 if (comp_score_added_1 == 0) {
                                                     comp_score_added_1++;
-                                                    comp_score = comp_score + 2;
+                                                    if (comp_score + 11 < 21) {
+                                                        comp_ace = 11;
+                                                    }
+                                                    else {
+                                                        comp_ace = 1;
+                                                    }
+                                                    comp_score = comp_score + comp_ace;
                                                     console.log(comp_score);
                                                 };
-                                                break;
-                                            case card_select[2].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 3;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[3].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 4;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[4].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 5;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[5].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 6;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[6].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 7;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[7].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 8;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[8].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 9;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[9].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 10;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[10].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 10;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 10;
-                                                    console.log(comp_score);
-                                                };
-                                            case card_select[11].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 10;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
-                                            case card_select[12].src:
-                                                if (comp_score_added_1 == 0) {
-                                                    comp_score_added_1++;
-                                                    comp_score = comp_score + 10;
-                                                    console.log(comp_score);
-                                                };
-                                                break;
+                                            });
+                                            break;
+                                        case card_select[1].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 2;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[2].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 3;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[3].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 4;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[4].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 5;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[5].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 6;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[6].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 7;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[7].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 8;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[8].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 9;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[9].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 10;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[10].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 10;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 10;
+                                                console.log(comp_score);
+                                            };
+                                        case card_select[11].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 10;
+                                                console.log(comp_score);
+                                            };
+                                            break;
+                                        case card_select[12].src:
+                                            if (comp_score_added_1 == 0) {
+                                                comp_score_added_1++;
+                                                comp_score = comp_score + 10;
+                                                console.log(comp_score);
+                                            };
+                                            break;
                                         };
                                     };
                                 };
@@ -931,109 +930,110 @@ function BlackJack() {
                                 if (user_card[5].src != card_select[0].src || ace_entered_5 == 1) {
                                     brush.drawImage(comp_card[2], 50, 100, 50, 50);
                                     switch (comp_card[2].src) {
-                                        case card_select[0].src:
-                                            setTimeout(function () {
-                                                if (comp_score_added_2 == 0) {
-                                                    comp_score_added_2++;
-                                                    if (comp_score + 11 < 21) {
-                                                        comp_ace = 11;
-                                                    } else {
-                                                        comp_ace = 1;
-                                                    }
-                                                    comp_score = comp_score + comp_ace;
-                                                    console.log(comp_score);
-                                                };
-                                            });
-                                            break;
-                                        case card_select[1].src:
+                                    case card_select[0].src:
+                                        setTimeout(function () {
                                             if (comp_score_added_2 == 0) {
                                                 comp_score_added_2++;
-                                                comp_score = comp_score + 2;
+                                                if (comp_score + 11 < 21) {
+                                                    comp_ace = 11;
+                                                }
+                                                else {
+                                                    comp_ace = 1;
+                                                }
+                                                comp_score = comp_score + comp_ace;
                                                 console.log(comp_score);
                                             };
-                                            break;
-                                        case card_select[2].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 3;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[3].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 4;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[4].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 5;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[5].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 6;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[6].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 7;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[7].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 8;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[8].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 9;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[9].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[10].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                        case card_select[11].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[12].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                            break;
+                                        });
+                                        break;
+                                    case card_select[1].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 2;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[2].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 3;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[3].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 4;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[4].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 5;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[5].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 6;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[6].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 7;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[7].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 8;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[8].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 9;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[9].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[10].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                    case card_select[11].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[12].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                        break;
                                     };
                                 };
                             };
@@ -1052,109 +1052,110 @@ function BlackJack() {
                                 if (user_card[5].src != card_select[0].src || ace_entered_5 == 1) {
                                     brush.drawImage(comp_card[3], 100, 100, 50, 50)
                                     switch (comp_card[3].src) {
-                                        case card_select[0].src:
-                                            setTimeout(function () {
-                                                if (comp_score_added_3 == 0) {
-                                                    comp_score_added_3++;
-                                                    if (comp_score + 11 < 21) {
-                                                        comp_ace = 11;
-                                                    } else {
-                                                        comp_ace = 1;
-                                                    }
-                                                    comp_score = comp_score + comp_ace;
-                                                    console.log(comp_score);
-                                                };
-                                            });
-                                            break;
-                                        case card_select[1].src:
+                                    case card_select[0].src:
+                                        setTimeout(function () {
                                             if (comp_score_added_3 == 0) {
                                                 comp_score_added_3++;
-                                                comp_score = comp_score + 2;
+                                                if (comp_score + 11 < 21) {
+                                                    comp_ace = 11;
+                                                }
+                                                else {
+                                                    comp_ace = 1;
+                                                }
+                                                comp_score = comp_score + comp_ace;
                                                 console.log(comp_score);
                                             };
-                                            break;
-                                        case card_select[2].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 3;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[3].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 4;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[4].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 5;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[5].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 6;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[6].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 7;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[7].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 8;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[8].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 9;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[9].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[10].src:
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                            if (comp_score_added_2 == 0) {
-                                                comp_score_added_2++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                        case card_select[11].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                            break;
-                                        case card_select[12].src:
-                                            if (comp_score_added_3 == 0) {
-                                                comp_score_added_3++;
-                                                comp_score = comp_score + 10;
-                                                console.log(comp_score);
-                                            };
-                                            break;
+                                        });
+                                        break;
+                                    case card_select[1].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 2;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[2].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 3;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[3].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 4;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[4].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 5;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[5].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 6;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[6].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 7;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[7].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 8;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[8].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 9;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[9].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[10].src:
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                        if (comp_score_added_2 == 0) {
+                                            comp_score_added_2++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                    case card_select[11].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                        break;
+                                    case card_select[12].src:
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
+                                            comp_score = comp_score + 10;
+                                            console.log(comp_score);
+                                        };
+                                        break;
                                     };
                                 };
                             };
@@ -1232,7 +1233,8 @@ function BlackJack() {
                 brush.fillText("Done", 10, 70);
                 brush.fillText("Draw", 10, 60);
             };
-        } else {
+        }
+        else {
             if (BlackJack_menu_item == 1) {
                 brush.font = "10px Arial";
                 brush.fillStyle = "white";
@@ -1325,7 +1327,7 @@ function BlackJack() {
 function SimonSays() {
     //change the title of the webpage
     document.title = "Simon Says"
-    // change the header tag
+        // change the header tag
     title.innerText = "Simon Says";
     // remove the subtitle and leave a gap
     sub.innerHTML = "<br>";
@@ -1333,106 +1335,31 @@ function SimonSays() {
     brush.clearRect(0, 0, 500, 500);
     // Allow the user to go back to the main menu
     cancelAnimationFrame(AF);
-
-
     //make a function to draw on the canvas
     function draw_SimonSays() {
         //draw a background
         brush.drawImage(SimonSays_background, 0, 0);
-
+        // first box
+        // change the colour of the box to green
+        brush.fillStyle = "#004600";
+        // draw the box
+        brush.fillRect(10, 9, 128, 63);
+        // second box
+        // change the colour of the box to red
+        brush.fillStyle = "#6d0000";
+        // draw the box
+        brush.fillRect(161, 9, 128, 63);
+        // third box
+        // change the colour of the box to yellow
+        brush.fillStyle = "#6c6c00";
+        // draw the box
+        brush.fillRect(10, 80, 128, 63);
+        // fourth box
+        //change the colour of the box to blue
+        brush.fillStyle = "#000064";
+        //draw the box
+        brush.fillRect(161, 80, 128, 63);
         //create an animation frame to play the game
-
-        switch (SimonSays_colour) {
-            case 1:
-                // first box
-                // change the colour of the box to green
-                brush.fillStyle = "#00d600";
-                // draw the box
-                brush.fillRect(10, 9, 128, 63);
-                // second box
-                // change the colour of the box to red
-                brush.fillStyle = "#6d0000";
-                // draw the box
-                brush.fillRect(161, 9, 128, 63);
-                // third box
-                // change the colour of the box to yellow
-                brush.fillStyle = "#6c6c00";
-                // draw the box
-                brush.fillRect(10, 80, 128, 63);
-                // fourth box
-                //change the colour of the box to blue
-                brush.fillStyle = "#000064";
-                //draw the box
-                brush.fillRect(161, 80, 128, 63);
-                break;
-            case 2:
-                // first box
-                // change the colour of the box to green
-                brush.fillStyle = "green";
-                // draw the box
-                brush.fillRect(10, 9, 128, 63);
-                // second box
-                // change the colour of the box to red
-                brush.fillStyle = "#ff0000";
-                // draw the box
-                brush.fillRect(161, 9, 128, 63);
-                // third box
-                // change the colour of the box to yellow
-                brush.fillStyle = "#6c6c00";
-                // draw the box
-                brush.fillRect(10, 80, 128, 63);
-                // fourth box
-                //change the colour of the box to blue
-                brush.fillStyle = "#000064";
-                //draw the box
-                brush.fillRect(161, 80, 128, 63);
-                break;
-            case 3:
-                // first box
-                // change the colour of the box to green
-                brush.fillStyle = "green";
-                // draw the box
-                brush.fillRect(10, 9, 128, 63);
-                // second box
-                // change the colour of the box to red
-                brush.fillStyle = "#6d0000";
-                // draw the box
-                brush.fillRect(161, 9, 128, 63);
-                // third box
-                // change the colour of the box to yellow
-                brush.fillStyle = "#ffff00";
-                // draw the box
-                brush.fillRect(10, 80, 128, 63);
-                // fourth box
-                //change the colour of the box to blue
-                brush.fillStyle = "#000064";
-                //draw the box
-                brush.fillRect(161, 80, 128, 63);
-                break;
-            case 4:
-                // first box
-                // change the colour of the box to green
-                brush.fillStyle = "green";
-                // draw the box
-                brush.fillRect(10, 9, 128, 63);
-                // second box
-                // change the colour of the box to red
-                brush.fillStyle = "#6d0000";
-                // draw the box
-                brush.fillRect(161, 9, 128, 63);
-                // third box
-                // change the colour of the box to yellow
-                brush.fillStyle = "#6c6c00";
-                // draw the box
-                brush.fillRect(10, 80, 128, 63);
-                // fourth box
-                //change the colour of the box to blue
-                brush.fillStyle = "#0000ff";
-                //draw the box
-                brush.fillRect(161, 80, 128, 63);
-                break;
-        };
-
         AF = requestAnimationFrame(game_SimonSays);
     };
     // play Simon Says
@@ -1447,65 +1374,14 @@ function SimonSays() {
         addEventListener('keyup', function (e) {
             delete keys[e.keyCode];
         }, false);
-        //right
-        switch (SimonSays_colour) {
-            case 1:
-                if (keys[39] && pressed == 1) {
-                    pressed = 0;
-                    SimonSays_colour = 2
-                };
-                if (keys[40] && pressed == 1) {
-                    pressed = 0;
-                    SimonSays_colour = 3
-                };
-                if (keys[13] && pressed == 1) {
-                    pressed = 0;
-                    console.log("green")
-                };
-                break;
-            case 2:
-                if (keys[37] && pressed == 1) {
-                    pressed = 0;
-                    SimonSays_colour = 1
-                };
-                if (keys[40] && pressed == 1) {
-                    pressed = 0;
-                    SimonSays_colour = 4
-                };
-                if (keys[13] && pressed == 1) {
-                    pressed = 0;
-                    console.log("red")
-                };
-                break;
-            case 3:
-                if (keys[39] && pressed == 1) {
-                    pressed = 0;
-                    SimonSays_colour = 4
-                };
-                if (keys[38] && pressed == 1) {
-                    pressed = 0;
-                    SimonSays_colour = 1
-                };
-                if (keys[13] && pressed == 1) {
-                    pressed = 0;
-                    console.log("yellow")
-                };
-                break;
-            case 4:
-                if (keys[37] && pressed == 1) {
-                    pressed = 0;
-                    SimonSays_colour = 3
-                };
-                if (keys[38] && pressed == 1) {
-                    pressed = 0;
-                    SimonSays_colour = 2
-                };
-                if (keys[13] && pressed == 1) {
-                    pressed = 0;
-                    console.log("blue")
-                };
-                break;
-        }
+        //enter
+        if (keys[13] && pressed == 1) {
+            pressed = 0;
+            //clear the canvas
+            brush.clearRect(0, 0, 500, 500);
+            //reload the page to go back to the main menu
+            location.reload();
+        };
         //create an animation frame to loop back to draw SimonSays
         AF = requestAnimationFrame(draw_SimonSays);
     };
@@ -1538,7 +1414,7 @@ function SpaceInvaders() {
         brush.drawImage(alien_image, 10, 10);
         // draw the ship
         brush.drawImage(ship_image, 150, 130)
-        // play space invaders
+            // play space invaders
         AF = requestAnimationFrame(Game_SpaceInvaders);
     };
     // create a function to play Space Invaders
