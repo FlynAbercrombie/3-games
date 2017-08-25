@@ -10,7 +10,7 @@ BlackJack:
 5.make a game over screen
 6.make it so if money <= 0 the user is displayed the game over screen (retry or exit to main menu)
 7.add quit option to game over screen
-8.fix the bug with user_score_added_2 being where user_score_added_3 should be (line 533, 641, 749)
+
 
 
 SimonSays:
@@ -543,21 +543,21 @@ function BlackJack() {
                     };
                     break;
                 case card_select[9].src:
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
                     break;
                 case card_select[10].src:
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
                     break;
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_3 == 0) {
+                        user_score_added_3++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
@@ -651,21 +651,21 @@ function BlackJack() {
                     };
                     break;
                 case card_select[9].src:
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
                     break;
                 case card_select[10].src:
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
                     break;
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_4 == 0) {
+                        user_score_added_4++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
@@ -759,21 +759,21 @@ function BlackJack() {
                     };
                     break;
                 case card_select[9].src:
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
                     break;
                 case card_select[10].src:
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
                     break;
-                    if (user_score_added_2 == 0) {
-                        user_score_added_2++;
+                    if (user_score_added_5 == 0) {
+                        user_score_added_5++;
                         user_score = user_score + 10;
                         console.log(user_score);
                     };
@@ -1321,6 +1321,8 @@ function BlackJack() {
     // start the animation
     AF = requestAnimationFrame(BlackJack_Draw);
 };
+
+
 // Simon Says
 function SimonSays() {
     //change the title of the webpage
@@ -1339,22 +1341,22 @@ function SimonSays() {
         brush.drawImage(SimonSays_background, 0, 0);
         // first box
         // change the colour of the box to green
-        brush.fillStyle = "green";
+        brush.fillStyle = "#004600";
         // draw the box
         brush.fillRect(10, 9, 128, 63);
         // second box
         // change the colour of the box to red
-        brush.fillStyle = "red";
+        brush.fillStyle = "#6d0000";
         // draw the box
         brush.fillRect(161, 9, 128, 63);
         // third box
         // change the colour of the box to yellow
-        brush.fillStyle = "yellow";
+        brush.fillStyle = "#6c6c00";
         // draw the box
         brush.fillRect(10, 80, 128, 63);
         // fourth box
         //change the colour of the box to blue
-        brush.fillStyle = "blue";
+        brush.fillStyle = "#000064";
         //draw the box
         brush.fillRect(161, 80, 128, 63);
         //create an animation frame to play the game
