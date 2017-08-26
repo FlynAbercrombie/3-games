@@ -79,10 +79,13 @@ var shown = 0;
 var SimonSays_colour = 5;
 var SimonSays_pattern = [];
 var SimonSays_pattern_amount = -1;
-var SimonSays_user_done = 1;
+var SimonSays_user_done = 0;
 var simonSays_picker;
 var SimonSays_user_score = 0;
 var SimonSays_pattern_list = 0;
+var SimonSays_colour_added = 0;
+var SimonSays_pattern_repeat = 0;
+var SimonSays_GameOver = 0;
 // load the menu buttons into a variable
 var BlackJack_button_highlighted = new Image();
 BlackJack_button_highlighted.src = "../IMAGES/BlackJack-highlighted.png";
@@ -1357,23 +1360,32 @@ function SimonSays() {
     brush.fillStyle = "#000064";
     //draw the box
     brush.fillRect(161, 80, 128, 63);
+    SimonSays_colour = 0
     //make a function to draw on the canvas
     function draw_SimonSays() {
         //draw a background
-        brush.font = "10px Arial";
-        brush.fillStyle = "white";
-        brush.fillText("Your score: " + SimonSays_user_score, 8, 8);
-        if (SimonSays_user_score == 0)
+        
+        if (SimonSays_user_done == 0)
         {
+            
+            
             brush.font = "10px Arial";
             brush.clearRect(110, 0, 50, 8)
             brush.fillStyle = "black";
-            brush.fillRect(110, 0, 110, 8)
+            brush.fillRect(110, 0, 110, 8);
+            brush.fillRect(142, 1, 10, 10)
+            brush.fillRect(7, 1, 100, 7)
+            
+            
+            brush.font = "10px Arial";
+        brush.fillStyle = "white";
+        brush.fillText("Your score: " + SimonSays_user_score, 8, 8);
+            
             brush.fillStyle = "white";
             brush.fillText("showing pattern", 110, 8);
-            var go;
+        
             if (SimonSays_pattern_amount >= SimonSays_pattern_list) {
-                setInterval(function () {
+                setTimeout(function () {
                     switch (SimonSays_pattern[SimonSays_pattern_list]) {
                     case 0:
                         brush.fillStyle = "#00ff00";
@@ -1463,14 +1475,17 @@ function SimonSays() {
                         break;
                     }
                     SimonSays_pattern_list++;
-                    if (SimonSays_pattern_list > SimonSays_pattern_amount) {
-                        SimonSays_pattern_list = 0;
-                    }
+                    SimonSays_user_done = 1;
+                    
                 }, 1000);
             }
         };
         //create an animation frame to play the game
         if (SimonSays_user_done == 1) {
+            SimonSays_pattern_list = 0;
+            brush.fillStyle = "black";
+            brush.fillRect(110, 0, 110, 8);
+            brush.fillRect(141, 1, 11, 10)
             switch (SimonSays_colour) {
             case 0:
                 // first box
@@ -1566,7 +1581,35 @@ function SimonSays() {
     };
     // play Simon Says
     function game_SimonSays() {
-        if (SimonSays_user_done == 0) {
+        
+        if (SimonSays_user_done == 0  && SimonSays_colour_added != 1) {
+           
+                brush.fillStyle = "green";
+    // draw the box
+    brush.fillRect(10, 9, 128, 63);
+    // second box
+    // change the colour of the box to red
+    brush.fillStyle = "#6d0000";
+    // draw the box
+    brush.fillRect(161, 9, 128, 63);
+    // third box
+    // change the colour of the box to yellow
+    brush.fillStyle = "#6c6c00";
+    // draw the box
+    brush.fillRect(10, 80, 128, 63);
+    // fourth box
+    //change the colour of the box to blue
+    brush.fillStyle = "#000064";
+    //draw the box
+    brush.fillRect(161, 80, 128, 63);
+            SimonSays_pattern_amount++;
+            SimonSays_user_done = 0;
+            SimonSays_pattern[SimonSays_pattern_amount] = Math.floor(Math.random() * 4);
+            SimonSays_colour_added = 1;
+            console.log(SimonSays_pattern)
+        };
+        
+        if (SimonSays_user_done == 1) {
             // check for key presses
             addEventListener('keydown', function (e) {
                 keys[e.keyCode] = true;
@@ -1577,7 +1620,7 @@ function SimonSays() {
             addEventListener('keyup', function (e) {
                 delete keys[e.keyCode];
             }, false);
-        }
+        
         //right
         switch (SimonSays_colour) {
         case 0:
@@ -1591,8 +1634,22 @@ function SimonSays() {
             };
             if (keys[13] && pressed == 1) {
                 pressed = 0;
-                console.log("green");
-                SimonSays_user_done = 1;
+                console.log(SimonSays_pattern_repeat)
+                if (SimonSays_pattern[SimonSays_pattern_repeat] == 0) {
+                    SimonSays_pattern_repeat++;
+                    console.log(SimonSays_pattern_repeat)
+                if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
+                         SimonSays_user_done = 0;
+                     SimonSays_pattern_repeat = 0;
+                SimonSays_colour_added = 0;
+                SimonSays_user_score++;
+                    };
+                }
+                else {
+                cancelAnimationFrame(AF);
+                console.log("gameover")
+                SimonSays_GameOver = 1;
+            }
             };
             break;
         case 1:
@@ -1606,8 +1663,22 @@ function SimonSays() {
             };
             if (keys[13] && pressed == 1) {
                 pressed = 0;
-                console.log("red");
-                SimonSays_user_done = 1;
+                console.log(SimonSays_pattern_repeat)
+                if (SimonSays_pattern[SimonSays_pattern_repeat] == 1) {
+                    SimonSays_pattern_repeat++;
+                    console.log(SimonSays_pattern_repeat)
+                if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
+                         SimonSays_user_done = 0;
+                    SimonSays_pattern_repeat = 0;
+                SimonSays_colour_added = 0;
+                SimonSays_user_score++;
+                    };
+                }
+                else {
+                cancelAnimationFrame(AF);
+                console.log("gameover")
+                SimonSays_GameOver = 1;
+            }
             };
             break;
         case 2:
@@ -1621,8 +1692,22 @@ function SimonSays() {
             };
             if (keys[13] && pressed == 1) {
                 pressed = 0;
-                console.log("yellow");
-                SimonSays_user_done = 1;
+                console.log(SimonSays_pattern_repeat)
+                if (SimonSays_pattern[SimonSays_pattern_repeat] == 2) {
+                    SimonSays_pattern_repeat++;
+                    console.log(SimonSays_pattern_repeat)
+                if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
+                         SimonSays_user_done = 0;
+                     SimonSays_pattern_repeat = 0;
+                SimonSays_colour_added = 0;
+                SimonSays_user_score++;
+                    };
+                }
+                else {
+                cancelAnimationFrame(AF);
+                console.log("gameover")
+                SimonSays_GameOver = 1;
+            }
             };
             break;
         case 3:
@@ -1636,19 +1721,31 @@ function SimonSays() {
             };
             if (keys[13] && pressed == 1) {
                 pressed = 0;
-                console.log("blue");
-                SimonSays_user_done = 1;
+                console.log(SimonSays_pattern_repeat)
+                if (SimonSays_pattern[SimonSays_pattern_repeat] == 3) {
+                    SimonSays_pattern_repeat++;
+                    console.log(SimonSays_pattern_repeat)
+                    if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
+                         SimonSays_user_done = 0;
+                         SimonSays_pattern_repeat = 0;
+                SimonSays_colour_added = 0;
+                SimonSays_user_score++;
+                    };
+               
+                }
+            else {
+                cancelAnimationFrame(AF);
+                console.log("gameover")
+                SimonSays_GameOver = 1;
+            }
             };
             break;
         }
-        if (SimonSays_user_done == 1) {
-            SimonSays_pattern_amount++;
-            SimonSays_user_done = 0;
-            SimonSays_pattern[SimonSays_pattern_amount] = Math.floor(Math.random() * 4);
-            console.log(SimonSays_pattern)
-        }
+        };
+        if (SimonSays_GameOver != 1) {
         //create an animation frame to loop back to draw SimonSays
         AF = requestAnimationFrame(draw_SimonSays);
+        };
     };
     //start the animation
     AF = requestAnimationFrame(draw_SimonSays);
@@ -1709,4 +1806,4 @@ function SpaceInvaders() {
     // create an animation frame to start Space Invaders
     AF = requestAnimationFrame(Draw_SpaceInvaders);
 };
-AF = requestAnimationFrame(menu);
+AF = requestAnimationFrame(SimonSays);
