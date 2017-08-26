@@ -1363,13 +1363,14 @@ function SimonSays() {
         brush.font = "10px Arial";
         brush.fillStyle = "white";
         brush.fillText("Your score: " + SimonSays_user_score, 8, 8);
-        if (SimonSays_user_score == 0) {
+        if (SimonSays_user_score == 0)
+        {
             brush.font = "10px Arial";
             brush.clearRect(110, 0, 50, 8)
             brush.fillStyle = "black";
-            brush.fillRect(110, 0, 50, 8)
+            brush.fillRect(110, 0, 110, 8)
             brush.fillStyle = "white";
-            brush.fillText(SimonSays_pattern[0], 110, 8);
+            brush.fillText("showing pattern", 110, 8);
             var go;
             if (SimonSays_pattern_amount >= SimonSays_pattern_list) {
                 setInterval(function () {
