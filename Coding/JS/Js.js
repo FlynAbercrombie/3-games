@@ -1806,4 +1806,4 @@ function SpaceInvaders() {
     // create an animation frame to start Space Invaders
     AF = requestAnimationFrame(Draw_SpaceInvaders);
 };
-AF = requestAnimationFrame(SimonSays);
+AF = requestAnimationFrame(menu);
