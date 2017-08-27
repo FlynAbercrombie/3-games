@@ -1,6 +1,7 @@
 /* vvvvvvvvvvvvvvvvTODO listvvvvvvvvvvvvvvv
+
 All:
-1.Make an instructions screen
+
 
 BlackJack:
 1.add a cash system to black jack
@@ -13,14 +14,7 @@ BlackJack:
 
 
 
-FollowAlong:
-1.change colours of the boxes
-2.make an array to store pattern
-3.make an array to store user input
-4.make the program randomly select box
-5.add score
-6.add gameover if the user gets the pattern wrong
-
+SimonSays:
 
 Space Invaders:
 1.draw more aliens
@@ -77,15 +71,16 @@ var ace_entered_3 = 0;
 var ace_entered_4 = 0;
 var ace_entered_5 = 0;
 var shown = 0;
-var FollowAlong_colour = 5;
-var FollowAlong_pattern = [];
-var FollowAlong_pattern_amount = -1;
-var FollowAlong_user_done = 0;
-var FollowAlong_user_score = 0;
-var FollowAlong_pattern_list = 0;
-var FollowAlong_colour_added = 0;
-var FollowAlong_pattern_repeat = 0;
-var FollowAlong_GameOver = 0;
+var SimonSays_colour = 5;
+var SimonSays_pattern = [];
+var SimonSays_pattern_amount = -1;
+var SimonSays_user_done = 0;
+var SimonSays_user_score = 0;
+var SimonSays_pattern_list = 0;
+var SimonSays_colour_added = 0;
+var SimonSays_pattern_repeat = 0;
+var SimonSays_GameOver = 0;
+var Game_over_menu = 1;
 // load the menu buttons into a variable
 var BlackJack_button_highlighted = new Image();
 BlackJack_button_highlighted.src = "../IMAGES/BlackJack-highlighted.png";
@@ -95,10 +90,10 @@ var SpaceInvaders_button_highlighted = new Image();
 SpaceInvaders_button_highlighted.src = "../IMAGES/SpaceInvaders-highlighted.png";
 var SpaceInvaders_button_unhighlighted = new Image();
 SpaceInvaders_button_unhighlighted.src = "../IMAGES/SpaceInvaders-unhighlighted.png";
-var FollowAlong_button_highlighted = new Image();
-FollowAlong_button_highlighted.src = "../IMAGES/SimonSays-highlighted.png";
-var FollowAlong_button_unhighlighted = new Image();
-FollowAlong_button_unhighlighted.src = "../IMAGES/SimonSays-unhighlighted.png";
+var SimonSays_button_highlighted = new Image();
+SimonSays_button_highlighted.src = "../IMAGES/SimonSays-highlighted.png";
+var SimonSays_button_unhighlighted = new Image();
+SimonSays_button_unhighlighted.src = "../IMAGES/SimonSays-unhighlighted.png";
 var Menu_button = new Image();
 Menu_button.src = "../IMAGES/Menu_button.png";
 //load the backgrounds into a variable
@@ -108,8 +103,8 @@ var main_menu_background = new Image();
 main_menu_background.src = "../IMAGES/main_menu.png";
 var BlackJack_background = new Image();
 BlackJack_background.src = "../IMAGES/BlackJack_background.png";
-var FollowAlong_background = new Image();
-FollowAlong_background.src = "../IMAGES/SimonSays_background.png";
+var SimonSays_background = new Image();
+SimonSays_background.src = "../IMAGES/SimonSays_background.png";
 //create an array to store the keycode
 var keys = [];
 //create an array to store cards
@@ -121,20 +116,20 @@ function menu() {
         brush.clearRect(0, 0, 500, 500)
         brush.drawImage(main_menu_background, 0, 0, 300, 150);
         brush.drawImage(BlackJack_button_highlighted, 100, 20);
-        brush.drawImage(FollowAlong_button_unhighlighted, 100, 60);
+        brush.drawImage(SimonSays_button_unhighlighted, 100, 60);
         brush.drawImage(SpaceInvaders_button_unhighlighted, 100, 100);
     };
     if (menu_item == 2) {
         brush.clearRect(0, 0, 500, 500)
         brush.drawImage(main_menu_background, 0, 0, 320, 150);
         brush.drawImage(BlackJack_button_unhighlighted, 100, 20);
-        brush.drawImage(FollowAlong_button_highlighted, 100, 60);
+        brush.drawImage(SimonSays_button_highlighted, 100, 60);
         brush.drawImage(SpaceInvaders_button_unhighlighted, 100, 100);
     }
     if (menu_item == 3) {
         brush.drawImage(main_menu_background, 0, 0, 320, 150);
         brush.drawImage(BlackJack_button_unhighlighted, 100, 20);
-        brush.drawImage(FollowAlong_button_unhighlighted, 100, 60);
+        brush.drawImage(SimonSays_button_unhighlighted, 100, 60);
         brush.drawImage(SpaceInvaders_button_highlighted, 100, 100);
     }
     //request animation frame for the game function
@@ -161,9 +156,9 @@ function game() {
         if (menu_item == 1) {
             BlackJack();
         }
-        //launch FollowAlong
+        //launch SimonSays
         if (menu_item == 2) {
-            FollowAlong();
+            SimonSays();
         }
         //launch Space Invaders
         if (menu_item == 3) {
@@ -1332,17 +1327,19 @@ function BlackJack() {
     AF = requestAnimationFrame(BlackJack_Draw);
 };
 // Simon Says
-function FollowAlong() {
+function SimonSays() {
     //change the title of the webpage
-    document.title = "Follow Along"
+    document.title = "Simon Says"
         // change the header tag
-    title.innerText = "Follow Along";
+    title.innerText = "Simon Says";
     // remove the subtitle and leave a gap
     sub.innerHTML = "<br>";
-    //clear the canvas
-    // Allow the user to go back to the main menu
+    // make rules
+    rules.innerHTML = '<h3>How To Play</h3> <br> if "showing pattern" is displayed at the top of the game watch which of the 4 colours gets highlighted <br> when "showing pattern" is gone use the arrow keys and enter key to enter the pattern <br> if you guessed correctly the computer will show you the last colour then a different colour <br> you must then enter the first colour and the second colour and so on. <br> you must remember the whole pattern and enter it correctly to get points'
+        //clear the canvas
+        // Allow the user to go back to the main menu
     cancelAnimationFrame(AF);
-    brush.drawImage(FollowAlong_background, 0, 0);
+    brush.drawImage(SimonSays_background, 0, 0);
     brush.fillStyle = "green";
     // draw the box
     brush.fillRect(10, 9, 128, 63);
@@ -1361,11 +1358,11 @@ function FollowAlong() {
     brush.fillStyle = "#000064";
     //draw the box
     brush.fillRect(161, 80, 128, 63);
-    FollowAlong_colour = 0
+    SimonSays_colour = 0
         //make a function to draw on the canvas
-    function draw_FollowAlong() {
+    function draw_SimonSays() {
         //draw a background
-        if (FollowAlong_user_done == 0) {
+        if (SimonSays_user_done == 0) {
             brush.font = "10px Arial";
             brush.clearRect(110, 0, 50, 8)
             brush.fillStyle = "black";
@@ -1374,114 +1371,112 @@ function FollowAlong() {
             brush.fillRect(7, 1, 100, 7)
             brush.font = "10px Arial";
             brush.fillStyle = "white";
-            brush.fillText("Your score: " + FollowAlong_user_score, 8, 8);
+            brush.fillText("Your score: " + SimonSays_user_score, 8, 8);
             brush.fillStyle = "white";
             brush.fillText("showing pattern", 110, 8);
             setTimeout(function () {
-                setTimeout(function () {
-                    while (FollowAlong_pattern_amount >= FollowAlong_pattern_list) {
-                        console.log("paternlist" + FollowAlong_pattern_list)
-                        if (FollowAlong_pattern[FollowAlong_pattern_list] == 0) {
-                            FollowAlong_pattern_list++;
-                            console.log("paternlist after adding:" + FollowAlong_pattern_list)
-                            brush.fillStyle = "#00d600";
-                            // draw the box
-                            brush.fillRect(10, 9, 128, 63);
-                            // second box
-                            // change the colour of the box to red
-                            brush.fillStyle = "#6d0000";
-                            // draw the box
-                            brush.fillRect(161, 9, 128, 63);
-                            // third box
-                            // change the colour of the box to yellow
-                            brush.fillStyle = "#6c6c00";
-                            // draw the box
-                            brush.fillRect(10, 80, 128, 63);
-                            // fourth box
-                            //change the colour of the box to blue
-                            brush.fillStyle = "#000064";
-                            //draw the box
-                            brush.fillRect(161, 80, 128, 63);
-                        }
-                        if (FollowAlong_pattern[FollowAlong_pattern_list] == 1) {
-                            FollowAlong_pattern_list++;
-                            console.log("paternlistaaaaa" + FollowAlong_pattern_list)
-                            brush.fillStyle = "green";
-                            // draw the box
-                            brush.fillRect(10, 9, 128, 63);
-                            // second box
-                            // change the colour of the box to red
-                            brush.fillStyle = "#ff0000";
-                            // draw the box
-                            brush.fillRect(161, 9, 128, 63);
-                            // third box
-                            // change the colour of the box to yellow
-                            brush.fillStyle = "#6c6c00";
-                            // draw the box
-                            brush.fillRect(10, 80, 128, 63);
-                            // fourth box
-                            //change the colour of the box to blue
-                            brush.fillStyle = "#000064";
-                            //draw the box
-                            brush.fillRect(161, 80, 128, 63);
-                        }
-                        if (FollowAlong_pattern[FollowAlong_pattern_list] == 2) {
-                            FollowAlong_pattern_list++;
-                            console.log("paternlistaaaaa" + FollowAlong_pattern_list)
-                            brush.fillStyle = "green";
-                            // draw the box
-                            brush.fillRect(10, 9, 128, 63);
-                            // second box
-                            // change the colour of the box to red
-                            brush.fillStyle = "#6d0000";
-                            // draw the box
-                            brush.fillRect(161, 9, 128, 63);
-                            // third box
-                            // change the colour of the box to yellow
-                            brush.fillStyle = "#ffff00";
-                            // draw the box
-                            brush.fillRect(10, 80, 128, 63);
-                            // fourth box
-                            //change the colour of the box to blue
-                            brush.fillStyle = "#000064";
-                            //draw the box
-                            brush.fillRect(161, 80, 128, 63);
-                        }
-                        if (FollowAlong_pattern[FollowAlong_pattern_list] == 3) {
-                            FollowAlong_pattern_list++;
-                            console.log("paternlistaaaaa" + FollowAlong_pattern_list)
-                            brush.fillStyle = "green";
-                            // draw the box
-                            brush.fillRect(10, 9, 128, 63);
-                            // second box
-                            // change the colour of the box to red
-                            brush.fillStyle = "#6d0000";
-                            // draw the box
-                            brush.fillRect(161, 9, 128, 63);
-                            // third box
-                            // change the colour of the box to yellow
-                            brush.fillStyle = "#6c6c00";
-                            // draw the box
-                            brush.fillRect(10, 80, 128, 63);
-                            // fourth box
-                            //change the colour of the box to blue
-                            brush.fillStyle = "#0000ff";
-                            //draw the box
-                            brush.fillRect(161, 80, 128, 63);
-                        }
-                        setTimeout(function () {
-                            FollowAlong_user_done = 1;
-                        }, 1000);
+                while (SimonSays_pattern_amount >= SimonSays_pattern_list) {
+                    console.log("paternlist" + SimonSays_pattern_list)
+                    if (SimonSays_pattern[SimonSays_pattern_list] == 0) {
+                        SimonSays_pattern_list++;
+                        console.log("paternlist after adding:" + SimonSays_pattern_list)
+                        brush.fillStyle = "#00d600";
+                        // draw the box
+                        brush.fillRect(10, 9, 128, 63);
+                        // second box
+                        // change the colour of the box to red
+                        brush.fillStyle = "#6d0000";
+                        // draw the box
+                        brush.fillRect(161, 9, 128, 63);
+                        // third box
+                        // change the colour of the box to yellow
+                        brush.fillStyle = "#6c6c00";
+                        // draw the box
+                        brush.fillRect(10, 80, 128, 63);
+                        // fourth box
+                        //change the colour of the box to blue
+                        brush.fillStyle = "#000064";
+                        //draw the box
+                        brush.fillRect(161, 80, 128, 63);
                     }
-                }, 1000);
+                    if (SimonSays_pattern[SimonSays_pattern_list] == 1) {
+                        SimonSays_pattern_list++;
+                        console.log("paternlistaaaaa" + SimonSays_pattern_list)
+                        brush.fillStyle = "green";
+                        // draw the box
+                        brush.fillRect(10, 9, 128, 63);
+                        // second box
+                        // change the colour of the box to red
+                        brush.fillStyle = "#ff0000";
+                        // draw the box
+                        brush.fillRect(161, 9, 128, 63);
+                        // third box
+                        // change the colour of the box to yellow
+                        brush.fillStyle = "#6c6c00";
+                        // draw the box
+                        brush.fillRect(10, 80, 128, 63);
+                        // fourth box
+                        //change the colour of the box to blue
+                        brush.fillStyle = "#000064";
+                        //draw the box
+                        brush.fillRect(161, 80, 128, 63);
+                    }
+                    if (SimonSays_pattern[SimonSays_pattern_list] == 2) {
+                        SimonSays_pattern_list++;
+                        console.log("paternlistaaaaa" + SimonSays_pattern_list)
+                        brush.fillStyle = "green";
+                        // draw the box
+                        brush.fillRect(10, 9, 128, 63);
+                        // second box
+                        // change the colour of the box to red
+                        brush.fillStyle = "#6d0000";
+                        // draw the box
+                        brush.fillRect(161, 9, 128, 63);
+                        // third box
+                        // change the colour of the box to yellow
+                        brush.fillStyle = "#ffff00";
+                        // draw the box
+                        brush.fillRect(10, 80, 128, 63);
+                        // fourth box
+                        //change the colour of the box to blue
+                        brush.fillStyle = "#000064";
+                        //draw the box
+                        brush.fillRect(161, 80, 128, 63);
+                    }
+                    if (SimonSays_pattern[SimonSays_pattern_list] == 3) {
+                        SimonSays_pattern_list++;
+                        console.log("paternlistaaaaa" + SimonSays_pattern_list)
+                        brush.fillStyle = "green";
+                        // draw the box
+                        brush.fillRect(10, 9, 128, 63);
+                        // second box
+                        // change the colour of the box to red
+                        brush.fillStyle = "#6d0000";
+                        // draw the box
+                        brush.fillRect(161, 9, 128, 63);
+                        // third box
+                        // change the colour of the box to yellow
+                        brush.fillStyle = "#6c6c00";
+                        // draw the box
+                        brush.fillRect(10, 80, 128, 63);
+                        // fourth box
+                        //change the colour of the box to blue
+                        brush.fillStyle = "#0000ff";
+                        //draw the box
+                        brush.fillRect(161, 80, 128, 63);
+                    }
+                    setTimeout(function () {
+                        SimonSays_user_done = 1;
+                    }, 1000);
+                }
             }, 1000);
         };
         //create an animation frame to play the game
-        if (FollowAlong_user_done == 1) {
+        if (SimonSays_user_done == 1) {
             brush.fillStyle = "black";
             brush.fillRect(110, 0, 110, 8);
             brush.fillRect(141, 1, 11, 10)
-            switch (FollowAlong_colour) {
+            switch (SimonSays_colour) {
             case 0:
                 // first box
                 // change the colour of the box to green
@@ -1572,21 +1567,21 @@ function FollowAlong() {
                 break;
             };
         };
-        AF = requestAnimationFrame(game_FollowAlong);
+        AF = requestAnimationFrame(game_SimonSays);
     };
     // play Simon Says
-    function game_FollowAlong() {
-        if (FollowAlong_user_done == 0 && FollowAlong_colour_added != 1) {
-            FollowAlong_pattern_amount++;
-            FollowAlong_user_done = 0;
+    function game_SimonSays() {
+        if (SimonSays_user_done == 0 && SimonSays_colour_added != 1) {
+            SimonSays_pattern_amount++;
+            SimonSays_user_done = 0;
             do {
-                FollowAlong_pattern[FollowAlong_pattern_amount] = Math.floor(Math.random() * 4);
-            } while (FollowAlong_pattern[FollowAlong_pattern_amount] == FollowAlong_pattern[FollowAlong_pattern_amount - 1])
-            FollowAlong_colour_added = 1;
-            FollowAlong_pattern_list = 0;
-            console.log(FollowAlong_pattern)
+                SimonSays_pattern[SimonSays_pattern_amount] = Math.floor(Math.random() * 4);
+            } while (SimonSays_pattern[SimonSays_pattern_amount] == SimonSays_pattern[SimonSays_pattern_amount - 1])
+            SimonSays_colour_added = 1;
+            SimonSays_pattern_list = 0;
+            console.log(SimonSays_pattern)
         };
-        if (FollowAlong_user_done == 1) {
+        if (SimonSays_user_done == 1) {
             // check for key presses
             addEventListener('keydown', function (e) {
                 keys[e.keyCode] = true;
@@ -1598,152 +1593,194 @@ function FollowAlong() {
                 delete keys[e.keyCode];
             }, false);
             //right
-            switch (FollowAlong_colour) {
+            switch (SimonSays_colour) {
             case 0:
                 if (keys[39] && pressed == 1) {
                     pressed = 0;
-                    FollowAlong_colour = 1
+                    SimonSays_colour = 1
                 };
                 if (keys[40] && pressed == 1) {
                     pressed = 0;
-                    FollowAlong_colour = 2
+                    SimonSays_colour = 2
                 };
                 if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    console.log(FollowAlong_pattern_repeat)
-                    if (FollowAlong_pattern[FollowAlong_pattern_repeat] == 0) {
-                        FollowAlong_pattern_repeat++;
-                        console.log(FollowAlong_pattern_repeat)
-                        if (FollowAlong_pattern_repeat == FollowAlong_pattern_amount + 1) {
-                            FollowAlong_user_done = 0;
-                            FollowAlong_pattern_repeat = 0;
-                            FollowAlong_colour_added = 0;
-                            FollowAlong_user_score++;
+                    console.log(SimonSays_pattern_repeat)
+                    if (SimonSays_pattern[SimonSays_pattern_repeat] == 0) {
+                        SimonSays_pattern_repeat++;
+                        console.log(SimonSays_pattern_repeat)
+                        if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
+                            SimonSays_user_done = 0;
+                            SimonSays_pattern_repeat = 0;
+                            SimonSays_colour_added = 0;
+                            SimonSays_user_score++;
                         };
                     }
                     else {
-                        cancelAnimationFrame(AF);
-                        brush.clearRect(0, 0, 500, 500);
-                        brush.fillStyle="black";
-                        brush.fillRect(0,0,500,500)
-                        FollowAlong_GameOver = 1;
-                        brush.font = "30px Arial";
-                        brush.fillStyle = "red";
-                        brush.fillText("Game Over!", 75, 40);
+                   SimonSays_gameover();
                     }
                 };
                 break;
             case 1:
                 if (keys[37] && pressed == 1) {
                     pressed = 0;
-                    FollowAlong_colour = 0
+                    SimonSays_colour = 0
                 };
                 if (keys[40] && pressed == 1) {
                     pressed = 0;
-                    FollowAlong_colour = 3
+                    SimonSays_colour = 3
                 };
                 if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    console.log(FollowAlong_pattern_repeat)
-                    if (FollowAlong_pattern[FollowAlong_pattern_repeat] == 1) {
-                        FollowAlong_pattern_repeat++;
-                        console.log(FollowAlong_pattern_repeat)
-                        if (FollowAlong_pattern_repeat == FollowAlong_pattern_amount + 1) {
-                            FollowAlong_user_done = 0;
-                            FollowAlong_pattern_repeat = 0;
-                            FollowAlong_colour_added = 0;
-                            FollowAlong_user_score++;
+                    console.log(SimonSays_pattern_repeat)
+                    if (SimonSays_pattern[SimonSays_pattern_repeat] == 1) {
+                        SimonSays_pattern_repeat++;
+                        console.log(SimonSays_pattern_repeat)
+                        if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
+                            SimonSays_user_done = 0;
+                            SimonSays_pattern_repeat = 0;
+                            SimonSays_colour_added = 0;
+                            SimonSays_user_score++;
                         };
                     }
                     else {
-                        cancelAnimationFrame(AF);
-                        brush.clearRect(0, 0, 500, 500);
-                        brush.fillStyle="black";
-                        brush.fillRect(0,0,500,500)
-                        FollowAlong_GameOver = 1;
-                        brush.font = "30px Arial";
-                        brush.fillStyle = "red";
-                        brush.fillText("Game Over!", 75, 40);
+                   SimonSays_gameover();
+                        
                     }
                 };
                 break;
             case 2:
                 if (keys[39] && pressed == 1) {
                     pressed = 0;
-                    FollowAlong_colour = 3
+                    SimonSays_colour = 3
                 };
                 if (keys[38] && pressed == 1) {
                     pressed = 0;
-                    FollowAlong_colour = 0
+                    SimonSays_colour = 0
                 };
                 if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    console.log(FollowAlong_pattern_repeat)
-                    if (FollowAlong_pattern[FollowAlong_pattern_repeat] == 2) {
-                        FollowAlong_pattern_repeat++;
-                        console.log(FollowAlong_pattern_repeat)
-                        if (FollowAlong_pattern_repeat == FollowAlong_pattern_amount + 1) {
-                            FollowAlong_user_done = 0;
-                            FollowAlong_pattern_repeat = 0;
-                            FollowAlong_colour_added = 0;
-                            FollowAlong_user_score++;
+                    console.log(SimonSays_pattern_repeat)
+                    if (SimonSays_pattern[SimonSays_pattern_repeat] == 2) {
+                        SimonSays_pattern_repeat++;
+                        console.log(SimonSays_pattern_repeat)
+                        if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
+                            SimonSays_user_done = 0;
+                            SimonSays_pattern_repeat = 0;
+                            SimonSays_colour_added = 0;
+                            SimonSays_user_score++;
                         };
                     }
                     else {
-                        cancelAnimationFrame(AF);
-                        brush.clearRect(0, 0, 500, 500);
-                        brush.fillStyle="black";
-                        brush.fillRect(0,0,500,500)
-                        FollowAlong_GameOver = 1;
-                        brush.font = "30px Arial";
-                        brush.fillStyle = "red";
-                        brush.fillText("Game Over!", 75, 40);
+                       SimonSays_gameover();
+                
                     }
                 };
                 break;
             case 3:
                 if (keys[37] && pressed == 1) {
                     pressed = 0;
-                    FollowAlong_colour = 2
+                    SimonSays_colour = 2
                 };
                 if (keys[38] && pressed == 1) {
                     pressed = 0;
-                    FollowAlong_colour = 1
+                    SimonSays_colour = 1
                 };
                 if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    console.log(FollowAlong_pattern_repeat)
-                    if (FollowAlong_pattern[FollowAlong_pattern_repeat] == 3) {
-                        FollowAlong_pattern_repeat++;
-                        console.log(FollowAlong_pattern_repeat)
-                        if (FollowAlong_pattern_repeat == FollowAlong_pattern_amount + 1) {
-                            FollowAlong_user_done = 0;
-                            FollowAlong_pattern_repeat = 0;
-                            FollowAlong_colour_added = 0;
-                            FollowAlong_user_score++;
+                    console.log(SimonSays_pattern_repeat)
+                    if (SimonSays_pattern[SimonSays_pattern_repeat] == 3) {
+                        SimonSays_pattern_repeat++;
+                        console.log(SimonSays_pattern_repeat)
+                        if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
+                            SimonSays_user_done = 0;
+                            SimonSays_pattern_repeat = 0;
+                            SimonSays_colour_added = 0;
+                            SimonSays_user_score++;
                         };
                     }
                     else {
-                        cancelAnimationFrame(AF);
-                        brush.clearRect(0, 0, 500, 500);
-                        brush.fillStyle="black";
-                        brush.fillRect(0,0,500,500)
-                        FollowAlong_GameOver = 1;
-                        brush.font = "30px Arial";
-                        brush.fillStyle = "red";
-                        brush.fillText("Game Over!", 75, 40);
+                   SimonSays_gameover();
                     }
                 };
                 break;
             }
         };
-        if (FollowAlong_GameOver != 1) {
-            //create an animation frame to loop back to draw FollowAlong
-            AF = requestAnimationFrame(draw_FollowAlong);
+        if (SimonSays_GameOver != 1) {
+            //create an animation frame to loop back to draw SimonSays
+            AF = requestAnimationFrame(draw_SimonSays);
         };
     };
+    function SimonSays_gameover() {
+         
+                        brush.clearRect(0, 0, 500, 500);
+                        brush.fillStyle = "black";
+                        brush.fillRect(0, 0, 500, 500)
+                        SimonSays_GameOver = 1;
+                        brush.font = "30px Arial";
+                        brush.fillStyle = "red";
+                        brush.fillText("Game Over!", 75, 40);
+            if (Game_over_menu == 1) {
+                brush.font = "10px Arial";
+                        brush.fillStyle = "white"
+                        brush.fillText("Quit", 75, 80);
+                        brush.fillStyle= "grey";
+                        brush.fillText("Try Again", 180, 80);
+                        
+            }
+        if (Game_over_menu == 2) {
+            brush.font = "10px Arial";
+            brush.fillStyle = "grey"
+                        brush.fillText("Quit", 75, 80);
+                        brush.fillStyle= "white";
+                        brush.fillText("Try Again", 180, 80);
+            if (keys[13] && pressed == 1) {
+                    pressed = 0;
+                    
+        }
+        };
+                       
+        AF = requestAnimationFrame(SimonSays_quit_retry)
+        
+    };
+    function SimonSays_quit_retry() {
+        if (Game_over_menu == 1) {
+        if (keys[13] && pressed == 1) {
+                    pressed = 0;
+                    location.reload();
+                    
+                };
+        if (keys[39] && pressed == 1) {
+            Game_over_menu = 2;
+        };
+        }
+        if (Game_over_menu == 2) {
+        if (keys[13] && pressed == 1) {
+                    pressed = 0;
+                    cancelAnimationFrame(AF);
+                SimonSays_colour = 5;
+            SimonSays_pattern = [];
+            SimonSays_pattern_amount = -1;
+            SimonSays_user_done = 0;
+            SimonSays_user_score = 0;
+            SimonSays_pattern_list = 0;
+            SimonSays_colour_added = 0;
+            SimonSays_pattern_repeat = 0;
+            SimonSays_GameOver = 0;
+             Game_over_menu = 1;
+            SimonSays();
+            return;
+                    
+                };
+        if (keys[37] && pressed == 1) {
+            Game_over_menu = 1;
+        };
+        }
+        AF = requestAnimationFrame(SimonSays_gameover)
+        
+    }
     //start the animation
-    AF = requestAnimationFrame(draw_FollowAlong);
+    AF = requestAnimationFrame(draw_SimonSays);
     console.log("ready")
 }
 // Space Invaders
