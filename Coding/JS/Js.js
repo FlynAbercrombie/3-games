@@ -1790,6 +1790,7 @@ function SpaceInvaders() {
     title.innerText = "Space Invaders";
     // Remove the subtitle and leave a gap
     sub.innerHTML = "<br>";
+    rules.innerHTML = "<h3> How To Play </h3> Move the character with left and right arrow keys <br> fire projectiles with the spacebar <br> your goal is to shoot all the aliens before they reach you. <br> killing aliens gives you points, killing all the aliens respawns them <br> if they touch the ground you lose!"
     // Clear the canvas
     brush.clearRect(0, 0, 500, 500);
     // Allow the user to go back to the main menu
