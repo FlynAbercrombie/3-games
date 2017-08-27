@@ -1,7 +1,7 @@
 /* vvvvvvvvvvvvvvvvTODO listvvvvvvvvvvvvvvv
 All:
 
-
+make the rules appear on the canvas, to prevent spacebar and arrow keys scrolling
 BlackJack:
 1.add a cash system to black jack
 2.put boxes around certain elements
@@ -47,6 +47,7 @@ var title = document.getElementById('title');
 var sub = document.getElementById('sub');
 var rules = document.getElementById('rules');
 // make a variable for the animation frame
+var SI;
 var AF;
 var BlackJack_menu_item = 1;
 var user_card = [0, 0, 0, 0, 0, 0];
@@ -79,6 +80,31 @@ var SimonSays_pattern_list = 0;
 var SimonSays_colour_added = 0;
 var SimonSays_pattern_repeat = 0;
 var SimonSays_GameOver = 0;
+
+
+   
+       var ship = {
+        x:150,
+        y: 130,
+        speed: 5,
+    }
+          var bullet_obj_0 = {
+        speed: 5,
+        x: ship.x,
+        y: ship.y,
+    }
+          var bullet_obj_1 = {
+        speed: 5,
+        x: ship.x,
+        y: ship.y,
+    }
+          var bullet_obj_2 = {
+        speed: 5,
+        x: ship.x,
+        y: ship.y,
+    }
+          var bullet = [0,0,0];
+           var bullet_amount = 0;
 var Game_over_menu = 1;
 // load the menu buttons into a variable
 var BlackJack_button_highlighted = new Image();
@@ -1795,6 +1821,12 @@ function SpaceInvaders() {
     brush.clearRect(0, 0, 500, 500);
     // Allow the user to go back to the main menu
     cancelAnimationFrame(AF);
+
+ 
+    
+   
+    var bullet_1_called = 0;
+
     // Make a function to draw on the canvas
     function Draw_SpaceInvaders() {
         // create a variable to store the image of an alien
@@ -1808,8 +1840,28 @@ function SpaceInvaders() {
         // draw and move the aliens
         brush.drawImage(alien_image, 10, 10);
         // draw the ship
-        brush.drawImage(ship_image, 150, 130)
+        brush.drawImage(ship_image, ship.x, ship.y)
+        
+        
+        
+        if (bullet[0] == 1) {
+            brush.fillStyle = "white";
+            
+            brush.fillRect(bullet_obj_0.x + 7.5, bullet_obj_0.y, 2, 4);
+            if (bullet_1_called == 0) {
+                bullet_1_called = 1;
+               SI = setInterval(function(){
+                
+               bullet_obj_0.y = bullet_obj_0.y - bullet_obj_0.speed;
+                
+            },50);
+            }
+           
+        }
+        
+
             // play space invaders
+        
         AF = requestAnimationFrame(Game_SpaceInvaders);
     };
     // create a function to play Space Invaders
@@ -1825,14 +1877,44 @@ function SpaceInvaders() {
             delete keys[e.keyCode];
         }, false);
         //enter
-        if (keys[13] && pressed == 1) {
-            pressed = 0;
-            //clear the canvas
-            brush.clearRect(0, 0, 500, 500);
-            // reload the page to go back to the main menu
-            location.reload();
-        };
+        if (keys[32] && pressed == 1) {
+            
+                 
+                     
+                     
+                    
+                     bullet[0] = 1;
+                     console.log(bullet_amount)
+                     if (bullet[0] == 1 && bullet_1_called == 0) {
+                 bullet_obj_0.y = ship.y
+                     bullet_obj_0.x = ship.x
+                                                  console.log("test1")
+                     };
+
+
+                if (bullet_obj_0.y < 0) {
+                    bullet[0] = 0;
+                    bullet_1_called = 0;
+                    clearInterval(SI)
+                    
+                }
+            
+        
+             
+            
+        }
+            
+        
+        if (keys[39])
+            {
+                ship.x = ship.x + ship.speed;
+            }
+        if (keys[37])
+            {
+                ship.x = ship.x - ship.speed;
+            }
         // loop back to the draw function
+        
         AF = requestAnimationFrame(Draw_SpaceInvaders);
     };
     // create an animation frame to start Space Invaders
