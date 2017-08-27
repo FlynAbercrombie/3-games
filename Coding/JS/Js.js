@@ -1128,21 +1128,21 @@ function BlackJack() {
                                         };
                                         break;
                                     case card_select[9].src:
-                                        if (comp_score_added_2 == 0) {
-                                            comp_score_added_2++;
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
                                             comp_score = comp_score + 10;
                                             console.log(comp_score);
                                         };
                                         break;
                                     case card_select[10].src:
-                                        if (comp_score_added_2 == 0) {
-                                            comp_score_added_2++;
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
                                             comp_score = comp_score + 10;
                                             console.log(comp_score);
                                         };
                                         break;
-                                        if (comp_score_added_2 == 0) {
-                                            comp_score_added_2++;
+                                        if (comp_score_added_3 == 0) {
+                                            comp_score_added_3++;
                                             comp_score = comp_score + 10;
                                             console.log(comp_score);
                                         };
