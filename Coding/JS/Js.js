@@ -1,7 +1,7 @@
 /* vvvvvvvvvvvvvvvvTODO listvvvvvvvvvvvvvvv
 All:
+Add hi-score
 
-make the rules appear on the canvas, to prevent spacebar and arrow keys scrolling
 BlackJack:
 1.add a cash system to black jack
 2.put boxes around certain elements
@@ -80,7 +80,18 @@ var SimonSays_pattern_list = 0;
 var SimonSays_colour_added = 0;
 var SimonSays_pattern_repeat = 0;
 var SimonSays_GameOver = 0;
-
+//disable scrolling with arrow keys and space bar
+window.onkeydown = function(e) {
+  if (e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+      if (e.keyCode == 40 && e.target == document.body) {
+    e.preventDefault();
+  }
+      if (e.keyCode == 38 && e.target == document.body) {
+    e.preventDefault();
+  }
+};
 
    
        var ship = {
@@ -218,7 +229,7 @@ function BlackJack() {
         //change the header of the webpage
     title.innerText = "Black Jack";
     //remove the subtitle and leave a gap
-    sub.innerHTML = "<br>";
+    sub.innerHTML = "How to play at the bottom of the screen";
     rules.innerHTML = '<h3>How To Play</h3> <br> Press enter to draw a card <br> use the arrow keys to select an option <br> press enter on Draw to draw another card or press enter on Done to flip the cards <br> if you go over 21 you lose money (the same applies to the computer going over 21) <br> if you get more points than the computer you win (the same applies to the computer getting more points than you) <br> if an Ace appears a prompt will appear, enter either 1 or 11 to get those points <br> running out of money means you lose and have to quit or retry'
         //clear the canvas
     brush.clearRect(0, 0, 500, 500);
@@ -1339,7 +1350,34 @@ function BlackJack() {
                 //clear the canvas
                 brush.clearRect(0, 0, 500, 500);
                 // reload the page to go back to the main menu
-                location.reload();
+                 BlackJack_menu_item = 1;
+ user_card = [0, 0, 0, 0, 0, 0];
+ BlackJack_user_score = 0;
+ BlackJack_user_score_added_1 = 0;
+ BlackJack_user_score_added_2 = 0;
+ BlackJack_user_score_added_3 = 0;
+ BlackJack_user_score_added_4 = 0;
+ BlackJack_user_score_added_5 = 0;
+ comp_score = 0;
+ comp_score_added_1 = 0;
+ comp_score_added_2 = 0;
+ comp_score_added_3 = 0;
+ comp_score_added_4 = 0;
+ comp_score_added_5 = 0;
+ user_ace = 0;
+ comp_ace = 0;
+ ace_entered_1 = 0;
+ ace_entered_2 = 0;
+ ace_entered_3 = 0;
+ ace_entered_4 = 0;
+ ace_entered_5 = 0;
+ shown = 0;
+
+                menu();
+                
+                
+                return;
+                
             }
         };
         if (comp_card_counter > comp_cards) {
@@ -1358,7 +1396,7 @@ function SimonSays() {
         // change the header tag
     title.innerText = "Simon Says";
     // remove the subtitle and leave a gap
-    sub.innerHTML = "<br>";
+    sub.innerHTML = "How to play at the bottom of the screen";
     // make rules
     rules.innerHTML = '<h3>How To Play</h3> <br> if "showing pattern" is displayed at the top of the game watch which of the 4 colours gets highlighted <br> when "showing pattern" is gone use the arrow keys and enter key to enter the pattern <br> if you guessed correctly the computer will show you the last colour then a different colour <br> you must then enter the first colour and the second colour and so on. <br> you must remember the whole pattern and enter it correctly to get points'
         //clear the canvas
@@ -1772,7 +1810,19 @@ function SimonSays() {
         if (Game_over_menu == 1) {
         if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    location.reload();
+            cancelAnimationFrame(AF);
+                SimonSays_colour = 5;
+            SimonSays_pattern = [];
+            SimonSays_pattern_amount = -1;
+            SimonSays_user_done = 0;
+            SimonSays_user_score = 0;
+            SimonSays_pattern_list = 0;
+            SimonSays_colour_added = 0;
+            SimonSays_pattern_repeat = 0;
+            SimonSays_GameOver = 0;
+             Game_over_menu = 1;
+                    menu();
+            return;
                     
                 };
         if (keys[39] && pressed == 1) {
@@ -1815,7 +1865,7 @@ function SpaceInvaders() {
     // Change the header tag
     title.innerText = "Space Invaders";
     // Remove the subtitle and leave a gap
-    sub.innerHTML = "<br>";
+    sub.innerHTML = "How to play at the bottom of the screen";
     rules.innerHTML = "<h3> How To Play </h3> Move the character with left and right arrow keys <br> fire projectiles with the spacebar <br> your goal is to shoot all the aliens before they reach you. <br> killing aliens gives you points, killing all the aliens respawns them <br> if they touch the ground you lose!"
     // Clear the canvas
     brush.clearRect(0, 0, 500, 500);
@@ -1854,7 +1904,7 @@ function SpaceInvaders() {
                 
                bullet_obj_0.y = bullet_obj_0.y - bullet_obj_0.speed;
                 
-            },50);
+            },30);
             }
            
         }
@@ -1899,7 +1949,7 @@ function SpaceInvaders() {
                     
                 }
             
-        
+    
              
             
         }
@@ -1907,12 +1957,22 @@ function SpaceInvaders() {
         
         if (keys[39])
             {
+                if (ship.x + 20 < 300) {
                 ship.x = ship.x + ship.speed;
+                }
+                else {
+                    ship.x = 0;
+                }
             }
         if (keys[37])
             {
+                if (ship.x > 0)
                 ship.x = ship.x - ship.speed;
+                else {
+            ship.x = 280;
+        }
             }
+        
         // loop back to the draw function
         
         AF = requestAnimationFrame(Draw_SpaceInvaders);
