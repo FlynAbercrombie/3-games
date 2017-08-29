@@ -1865,6 +1865,8 @@ function SpaceInvaders() {
     height: 20,
 };
 var goDown = 0
+var lasers = [];
+var laserTotal = 3;
 
         for (var i = 0; i < enemy.total; i++) {
   enemies.push([enemy.x, enemy.y, enemy.width, enemy.height, enemy.speed]);
@@ -1899,13 +1901,14 @@ function update() {
         ship.x = canvasWidth - ship.width;
     }
     
-    
+    moveLaser();
 }
 
 //draw the game world
 function render(){
     drawShip();
     drawEnemies();
+    drawLaser();
     requestAnimationFrame(gameLoop);
 }
 
@@ -1916,7 +1919,15 @@ function gameLoop() {
     render();
 }
     
-
+function drawLaser() {
+    //if there are lasers in the lasers array, draw them
+    if (lasers.length) {
+        for (var i = 0; i < lasers.length; i++) {
+            brush.fillStyle = '#f00';
+            brush.fillRect(lasers[i][0],lasers[i][1],lasers[i][2],lasers[i][3]);
+        }
+    }
+}
 
         function drawEnemies() {
     for (var i = 0; i < enemies.length; i++) {
@@ -1989,11 +2000,29 @@ if(enemies[i][0] + enemies[i][2] >= canvasWidth) {
         }
     }
 }
+    function moveLaser() {
+  for (var i = 0; i < lasers.length; i++) {
+    if (lasers[i][1] > -11) {
+      lasers[i][1] -= 10;
+    } else if (lasers[i][1] < -10) {
+      lasers.splice(i, 1);
+    }
+  }
+}
     
     gameLoop();
     setInterval(function() {
 
         moveEnemies();
     }, 500)
+    
+addEventListener('keydown', function(e){
+  keys[e.keyCode] = true;
+    //limit player to 3 lasers at a time
+    if (keys[32] && lasers.length < laserTotal) {
+        lasers.push([ship.x + 25, ship.y - 20, 4, 20]);
+    }
+}, false);
+    
     };
     AF = requestAnimationFrame(menu);
