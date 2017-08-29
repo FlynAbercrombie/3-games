@@ -16,9 +16,9 @@ BlackJack:
 SimonSays:
 
 Space Invaders:
-1.draw more aliens
-3.move aliens side to side
-4.move aliens down when they hit walls
+
+
+
 6.add score
 7.add game over when aliens touch the ground
 
@@ -46,6 +46,7 @@ var sub = document.getElementById('sub');
 var rules = document.getElementById('rules');
 // make a variable for the animation frame
 var SI;
+var SI2;
 var AF;
 var BlackJack_menu_item = 1;
 var user_card = [0, 0, 0, 0, 0, 0];
@@ -78,6 +79,16 @@ var SimonSays_pattern_list = 0;
 var SimonSays_colour_added = 0;
 var SimonSays_pattern_repeat = 0;
 var SimonSays_GameOver = 0;
+var enemy = {
+    x: 25,
+    y: 10,
+    speed: 1,
+    total: 5,
+    width: 30,
+    height: 20,
+    speed_increase: 300
+};
+var enemies = [];
 //disable scrolling with arrow keys and space bar
 window.onkeydown = function (e) {
     if (e.keyCode == 32 && e.target == document.body) {
@@ -91,7 +102,7 @@ window.onkeydown = function (e) {
     }
 };
 var Game_over_menu = 1;
-   var reverse = 0
+var reverse = 0
 // load the menu buttons into a variable
 var BlackJack_button_highlighted = new Image();
 BlackJack_button_highlighted.src = "../IMAGES/BlackJack-highlighted.png";
@@ -1847,182 +1858,169 @@ function SpaceInvaders() {
     var ship_image = new Image();
     ship_image.src = "../IMAGES/ship.png";
     var canvasWidth = 300;
-    var canvasHeight = 150;
-        var enemies = [];
-    var ship  = {
-    x: (canvasWidth / 2),
-    y: 125,
-    speed: 3,
-    width: 20,
-    height: 20,
-    }
-            var enemy = {
-    x: 25,
-    y: 10,
-    speed: 1,
-    total: 5,
-    width: 30,
-    height: 20,
-};
-var goDown = 0
-var lasers = [];
-var laserTotal = 3;
+    var canvasHeight = 110;
 
-        for (var i = 0; i < enemy.total; i++) {
-  enemies.push([enemy.x, enemy.y, enemy.width, enemy.height, enemy.speed]);
-  enemy.x += 60;
-}
-    
+    var ship = {
+        x: (canvasWidth / 2),
+        y: 125,
+        speed: 3,
+        width: 20,
+        height: 20,
+    }
+
+    var goDown = 0
+    var lasers = [];
+    var laserTotal = 3;
+    var lives = 3;
+    var SI_gameover
+
+    for (var i = 0; i < enemy.total; i++) {
+        enemies.push([enemy.x, enemy.y, enemy.width, enemy.height, enemy.speed]);
+        enemy.x += 60;
+    }
+
     function clearCanvas() {
-    brush.clearRect(0, 0, 500, 500);
-        brush.drawImage(Starry_background, 0,0)
-}
+        brush.clearRect(0, 0, 500, 500);
+        brush.drawImage(Starry_background, 0, 0)
+    }
+
     function drawShip() {
-    
-    brush.drawImage(ship_image ,ship.x, ship.y,);
-}
+
+        brush.drawImage(ship_image, ship.x, ship.y, );
+    }
 
     //check for changes in game world
-function update() {
-    // left arrow key
-    if (keys[37]) {
-        ship.x -= ship.speed;
+    function update() {
+        // left arrow key
+        if (keys[37]) {
+            ship.x -= ship.speed;
+        }
+
+        // right arrow key
+        if (keys[39]) {
+            ship.x += ship.speed;
+        }
+        // confine the player
+        if (ship.x <= 0) {
+
+            ship.x = 0;
+        }
+        if (ship.x + ship.width >= canvasWidth) {
+
+            ship.x = canvasWidth - ship.width - 1;
+        }
+
+        moveLaser();
+
+        hitTest();
+
     }
 
-    // right arrow key
-    if (keys[39]) {
-        ship.x += ship.speed;
+    //draw the game world
+    function render() {
+        drawShip();
+        drawEnemies();
+        drawLaser();
+        requestAnimationFrame(gameLoop);
     }
-    // confine player to game area
-    if (ship.x < 0) {
-        ship.x = 0;
+
+    //game loop function
+    function gameLoop() {
+        clearCanvas();
+        update();
+        render();
     }
-    if (ship.x + ship.width >= canvasWidth) {
-        ship.x = canvasWidth - ship.width;
-    }
-    
-    moveLaser();
-}
 
-//draw the game world
-function render(){
-    drawShip();
-    drawEnemies();
-    drawLaser();
-    requestAnimationFrame(gameLoop);
-}
+    function drawLaser() {
+        //if there are lasers in the lasers array, draw them
 
-//game loop function
-function gameLoop() {
-    clearCanvas();
-    update();
-    render();
-}
-    
-function drawLaser() {
-    //if there are lasers in the lasers array, draw them
-    if (lasers.length) {
-        for (var i = 0; i < lasers.length; i++) {
-            brush.fillStyle = '#f00';
-            brush.fillRect(lasers[i][0],lasers[i][1],lasers[i][2],lasers[i][3]);
-        }
-    }
-}
-
-        function drawEnemies() {
-    for (var i = 0; i < enemies.length; i++) {
-        
-        brush.drawImage(alien_image, enemies[i][0], enemies[i][1])
-
-  }
-}
-
-        function moveEnemies() {
-    
-    for (var i = 0; i < enemies.length; i++) {
-        if (goDown == 1) {
-                if(enemies[i][0] + enemies[i][2] >= canvasWidth) {
-            enemies[0][1] += 5
-            enemies[1][1] += 5
-            enemies[2][1] += 5
-            enemies[3][1] += 5
-            enemies[4][1] += 5
-            reverse = 1
-goDown = 0;
-        }
-        if (enemies[0][0] <= 5) {
-            
-            enemies[0][1] += 5
-            enemies[0][0] += 5
-            
-            enemies[1][1] += 5
-            enemies[1][0] -= 0
-            
-            
-            enemies[2][1] += 5
-            enemies[2][0] -= 5
-            
-            
-            enemies[3][1] += 5
-            enemies[3][0] -= 5
-            
-            
-            enemies[4][1] += 5
-            enemies[4][0] -= 5
-            reverse = 0
-goDown = 0;
-        }
-        }
-        else {
-        if (reverse == 0) {
-        if(enemies[i][0] + enemies[i][2] <= canvasWidth && reverse == 0) {
-            
-            enemies[i][0] += 5
-if(enemies[i][0] + enemies[i][2] >= canvasWidth) {
-    goDown = 1;
-}
-        }
-        }
-        else {
-
-           if(enemies[i][0] >= 5 && reverse == 1) {
-            enemies[i][0] -= 5
-
-
-        }
-            if (enemies[0][0] <= 5 && reverse == 1) {
-               
-                goDown = 1
-                console.log(goDown)
-                
+        if (lasers.length) {
+            for (var i = 0; i < lasers.length; i++) {
+                brush.fillStyle = '#f00';
+                brush.fillRect(lasers[i][0], lasers[i][1], lasers[i][2], lasers[i][3]);
             }
         }
+    }
+
+    function drawEnemies() {
+        for (var i = 0; i < enemies.length; i++) {
+
+            brush.drawImage(alien_image, enemies[i][0], enemies[i][1])
+
         }
     }
-}
-    function moveLaser() {
-  for (var i = 0; i < lasers.length; i++) {
-    if (lasers[i][1] > -11) {
-      lasers[i][1] -= 10;
-    } else if (lasers[i][1] < -10) {
-      lasers.splice(i, 1);
-    }
-  }
-}
-    
-    gameLoop();
-    setInterval(function() {
 
-        moveEnemies();
-    }, 500)
-    
-addEventListener('keydown', function(e){
-  keys[e.keyCode] = true;
-    //limit player to 3 lasers at a time
-    if (keys[32] && lasers.length < laserTotal) {
-        lasers.push([ship.x + 25, ship.y - 20, 4, 20]);
+    function moveEnemies() {
+        for (var i = 0; i < enemies.length; i++) {
+            if (enemies[i][1] < canvasHeight) {
+                enemies[i][1] += enemies[i][4];
+            } else if (enemies[i][1] > canvasHeight - 1) {
+                
+                lives--;
+                if (lives <= 0) {
+                    console.log("console.log")
+                }
+            }
+        }
     }
-}, false);
-    
-    };
-    AF = requestAnimationFrame(menu);
+
+    function hitTest() {
+        var remove = false;
+        for (var i = 0; i < lasers.length; i++) {
+            for (var j = 0; j < enemies.length; j++) {
+                if (lasers[i][1] <= (enemies[j][1] + enemies[j][3]) && lasers[i][0] >= enemies[j][0] && lasers[i][0] <= (enemies[j][0] + enemies[j][2])) {
+                    remove = true;
+                    enemies.splice(j, 1);
+                    enemies.push([(Math.random() * 280), -20, enemy.width, enemy.height, enemy.speed]);
+                    if (enemy.speed_increase >= 50) {
+                        enemy.speed_increase -= 10
+                    }
+                    clearInterval(SI);
+                    setTimeout(moveEnemies(), enemies.speed_increase)
+                    clearInterval(SI2);
+                    SI2 = setInterval(function () {
+
+                        moveEnemies();
+                    }, enemy.speed_increase)
+
+                }
+            }
+            if (remove == true) {
+                lasers.splice(i, 1);
+                remove = false;
+            }
+        }
+    }
+
+    function moveLaser() {
+        for (var i = 0; i < lasers.length; i++) {
+            if (lasers[i][1] > -11) {
+                lasers[i][1] -= 3;
+            } else if (lasers[i][1] < -10) {
+                lasers.splice(i, 1);
+            }
+        }
+    }
+
+    gameLoop();
+    SI = setInterval(function () {
+        shoot_allowed = 1;
+        moveEnemies();
+    }, enemy.speed_increase)
+    setTimeout(function () {
+
+
+        addEventListener('keydown', function (e) {
+            keys[e.keyCode] = true;
+            //limit player to 3 lasers at a time
+            if (keys[32] && lasers.length < laserTotal) {
+                lasers.push([ship.x + 7, ship.y - 4, 2, 4]);
+            }
+        }, false);
+
+    }, 1000);
+
+
+
+};
+AF = requestAnimationFrame(menu);
