@@ -1955,7 +1955,7 @@ function SpaceInvaders() {
             if (enemies[i][1] < canvasHeight) {
                 enemies[i][1] += enemies[i][4];
             } else if (enemies[i][1] > canvasHeight - 1) {
-                
+                enemies[i][1] = -15
                 lives--;
                 if (lives <= 0) {
                     console.log("console.log")
