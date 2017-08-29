@@ -306,7 +306,7 @@ function BlackJack() {
                                 user_ace = parseInt(prompt("1 or 11"));
                                 BlackJack_user_score = BlackJack_user_score + user_ace;
                                 ace_entered_1++;
-                                console.log(BlackJack_user_score);
+                                
                             };
                         });
                         break;
@@ -314,89 +314,89 @@ function BlackJack() {
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 2;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[2].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 3;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[3].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 4;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[4].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 5;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[5].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 6;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[6].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 7;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[7].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 8;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[8].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 9;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[9].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 10;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[10].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 10;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 10;
-                            console.log(BlackJack_user_score);
+                            
                         };
                     case card_select[11].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 10;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     case card_select[12].src:
                         if (BlackJack_user_score_added_1 == 0) {
                             BlackJack_user_score_added_1++;
                             BlackJack_user_score = BlackJack_user_score + 10;
-                            console.log(BlackJack_user_score);
+                            
                         };
                         break;
                     };
@@ -415,7 +415,7 @@ function BlackJack() {
                             user_ace = parseInt(prompt("1 or 11"));
                             BlackJack_user_score = BlackJack_user_score + user_ace;
                             ace_entered_2++;
-                            console.log(BlackJack_user_score);
+                            
                         };
                     });
                     break;
@@ -423,89 +423,89 @@ function BlackJack() {
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 2;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[2].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 3;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[3].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 4;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[4].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 5;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[5].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 6;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[6].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 7;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[7].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 8;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[8].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 9;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[9].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[10].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                 case card_select[11].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[12].src:
                     if (BlackJack_user_score_added_2 == 0) {
                         BlackJack_user_score_added_2++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 };
@@ -523,7 +523,7 @@ function BlackJack() {
                             user_ace = parseInt(prompt("1 or 11"));
                             ace_entered_3++;
                             BlackJack_user_score = BlackJack_user_score + user_ace;
-                            console.log(BlackJack_user_score);
+                            
                         };
                     });
                     break;
@@ -531,89 +531,89 @@ function BlackJack() {
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 2;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[2].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 3;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[3].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 4;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[4].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 5;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[5].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 6;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[6].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 7;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[7].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 8;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[8].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 9;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[9].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[10].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                 case card_select[11].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[12].src:
                     if (BlackJack_user_score_added_3 == 0) {
                         BlackJack_user_score_added_3++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 };
@@ -631,7 +631,7 @@ function BlackJack() {
                             user_ace = parseInt(prompt("1 or 11"));
                             BlackJack_user_score = BlackJack_user_score + user_ace;
                             ace_entered_4++;
-                            console.log(BlackJack_user_score);
+                            
                         };
                     });
                     break;
@@ -639,89 +639,89 @@ function BlackJack() {
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 2;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[2].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 3;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[3].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 4;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[4].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 5;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[5].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 6;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[6].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 7;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[7].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 8;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[8].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 9;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[9].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[10].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                 case card_select[11].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[12].src:
                     if (BlackJack_user_score_added_4 == 0) {
                         BlackJack_user_score_added_4++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 };
@@ -739,7 +739,7 @@ function BlackJack() {
                             user_ace = parseInt(prompt("1 or 11"));
                             BlackJack_user_score = BlackJack_user_score + user_ace;
                             ace_entered_5++;
-                            console.log(BlackJack_user_score);
+                            
                         };
                     });
                     break;
@@ -747,89 +747,89 @@ function BlackJack() {
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 2;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[2].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 3;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[3].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 4;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[4].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 5;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[5].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 6;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[6].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 7;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[7].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 8;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[8].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 9;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[9].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[10].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                 case card_select[11].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 case card_select[12].src:
                     if (BlackJack_user_score_added_5 == 0) {
                         BlackJack_user_score_added_5++;
                         BlackJack_user_score = BlackJack_user_score + 10;
-                        console.log(BlackJack_user_score);
+                        
                     };
                     break;
                 };
@@ -859,7 +859,7 @@ function BlackJack() {
                                                         comp_ace = 1;
                                                     }
                                                     comp_score = comp_score + comp_ace;
-                                                    console.log(comp_score);
+                                                    
                                                 };
                                             });
                                             break;
@@ -867,89 +867,89 @@ function BlackJack() {
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 2;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[2].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 3;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[3].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 4;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[4].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 5;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[5].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 6;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[6].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 7;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[7].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 8;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[8].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 9;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[9].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 10;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[10].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 10;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 10;
-                                                console.log(comp_score);
+                                                
                                             };
                                         case card_select[11].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 10;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         case card_select[12].src:
                                             if (comp_score_added_1 == 0) {
                                                 comp_score_added_1++;
                                                 comp_score = comp_score + 10;
-                                                console.log(comp_score);
+                                                
                                             };
                                             break;
                                         };
@@ -982,7 +982,7 @@ function BlackJack() {
                                                     comp_ace = 1;
                                                 }
                                                 comp_score = comp_score + comp_ace;
-                                                console.log(comp_score);
+                                                
                                             };
                                         });
                                         break;
@@ -990,89 +990,89 @@ function BlackJack() {
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 2;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[2].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 3;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[3].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 4;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[4].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 5;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[5].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 6;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[6].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 7;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[7].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 8;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[8].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 9;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[9].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[10].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                     case card_select[11].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[12].src:
                                         if (comp_score_added_2 == 0) {
                                             comp_score_added_2++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     };
@@ -1104,7 +1104,7 @@ function BlackJack() {
                                                     comp_ace = 1;
                                                 }
                                                 comp_score = comp_score + comp_ace;
-                                                console.log(comp_score);
+                                                
                                             };
                                         });
                                         break;
@@ -1112,89 +1112,89 @@ function BlackJack() {
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 2;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[2].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 3;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[3].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 4;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[4].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 5;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[5].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 6;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[6].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 7;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[7].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 8;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[8].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 9;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[9].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[10].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                     case card_select[11].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     case card_select[12].src:
                                         if (comp_score_added_3 == 0) {
                                             comp_score_added_3++;
                                             comp_score = comp_score + 10;
-                                            console.log(comp_score);
+                                            
                                         };
                                         break;
                                     };
@@ -1439,10 +1439,10 @@ function SimonSays() {
             brush.fillText("showing pattern", 110, 8);
             setTimeout(function () {
                 while (SimonSays_pattern_amount >= SimonSays_pattern_list) {
-                    console.log("paternlist" + SimonSays_pattern_list)
+                    
                     if (SimonSays_pattern[SimonSays_pattern_list] == 0) {
                         SimonSays_pattern_list++;
-                        console.log("paternlist after adding:" + SimonSays_pattern_list)
+                        
                         brush.fillStyle = "#00d600";
                         // draw the box
                         brush.fillRect(10, 9, 128, 63);
@@ -1464,7 +1464,7 @@ function SimonSays() {
                     }
                     if (SimonSays_pattern[SimonSays_pattern_list] == 1) {
                         SimonSays_pattern_list++;
-                        console.log("paternlistaaaaa" + SimonSays_pattern_list)
+                        
                         brush.fillStyle = "green";
                         // draw the box
                         brush.fillRect(10, 9, 128, 63);
@@ -1486,7 +1486,7 @@ function SimonSays() {
                     }
                     if (SimonSays_pattern[SimonSays_pattern_list] == 2) {
                         SimonSays_pattern_list++;
-                        console.log("paternlistaaaaa" + SimonSays_pattern_list)
+                        
                         brush.fillStyle = "green";
                         // draw the box
                         brush.fillRect(10, 9, 128, 63);
@@ -1508,7 +1508,7 @@ function SimonSays() {
                     }
                     if (SimonSays_pattern[SimonSays_pattern_list] == 3) {
                         SimonSays_pattern_list++;
-                        console.log("paternlistaaaaa" + SimonSays_pattern_list)
+                        
                         brush.fillStyle = "green";
                         // draw the box
                         brush.fillRect(10, 9, 128, 63);
@@ -1642,7 +1642,7 @@ function SimonSays() {
             } while (SimonSays_pattern[SimonSays_pattern_amount] == SimonSays_pattern[SimonSays_pattern_amount - 1])
             SimonSays_colour_added = 1;
             SimonSays_pattern_list = 0;
-            console.log(SimonSays_pattern)
+            
         };
         if (SimonSays_user_done == 1) {
             // check for key presses
@@ -1668,10 +1668,10 @@ function SimonSays() {
                 };
                 if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    console.log(SimonSays_pattern_repeat)
+            
                     if (SimonSays_pattern[SimonSays_pattern_repeat] == 0) {
                         SimonSays_pattern_repeat++;
-                        console.log(SimonSays_pattern_repeat)
+                
                         if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
                             SimonSays_user_done = 0;
                             SimonSays_pattern_repeat = 0;
@@ -1695,10 +1695,10 @@ function SimonSays() {
                 };
                 if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    console.log(SimonSays_pattern_repeat)
+            
                     if (SimonSays_pattern[SimonSays_pattern_repeat] == 1) {
                         SimonSays_pattern_repeat++;
-                        console.log(SimonSays_pattern_repeat)
+                
                         if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
                             SimonSays_user_done = 0;
                             SimonSays_pattern_repeat = 0;
@@ -1723,10 +1723,10 @@ function SimonSays() {
                 };
                 if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    console.log(SimonSays_pattern_repeat)
+            
                     if (SimonSays_pattern[SimonSays_pattern_repeat] == 2) {
                         SimonSays_pattern_repeat++;
-                        console.log(SimonSays_pattern_repeat)
+                
                         if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
                             SimonSays_user_done = 0;
                             SimonSays_pattern_repeat = 0;
@@ -1751,10 +1751,10 @@ function SimonSays() {
                 };
                 if (keys[13] && pressed == 1) {
                     pressed = 0;
-                    console.log(SimonSays_pattern_repeat)
+            
                     if (SimonSays_pattern[SimonSays_pattern_repeat] == 3) {
                         SimonSays_pattern_repeat++;
-                        console.log(SimonSays_pattern_repeat)
+                
                         if (SimonSays_pattern_repeat == SimonSays_pattern_amount + 1) {
                             SimonSays_user_done = 0;
                             SimonSays_pattern_repeat = 0;
@@ -1856,7 +1856,6 @@ function SimonSays() {
     }
     //start the animation
     AF = requestAnimationFrame(draw_SimonSays);
-    console.log("ready")
 }
 // Space Invaders
 function SpaceInvaders() {
@@ -1934,12 +1933,10 @@ function SpaceInvaders() {
                      
                     
                      bullet[0] = 1;
-                     console.log(bullet_amount)
                      if (bullet[0] == 1 && bullet_1_called == 0) {
                  bullet_obj_0.y = ship.y
                      bullet_obj_0.x = ship.x
-                                                  console.log("test1")
-                     };
+                                                                       };
 
 
                 if (bullet_obj_0.y < 0) {
