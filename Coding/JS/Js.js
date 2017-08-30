@@ -2078,6 +2078,9 @@ function SpaceInvaders() {
         brush.font = "30px Arial";
         brush.fillStyle = "red";
         brush.fillText("Game Over!", 75, 40);
+        brush.font = "10px Arial";
+        brush.fillStyle = "white";
+        brush.fillText("Score: " + score, 125, 60)
         if (Game_over_menu == 1) {
             brush.font = "10px Arial";
             brush.fillStyle = "white"
