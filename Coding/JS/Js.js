@@ -79,16 +79,7 @@ var SimonSays_pattern_list = 0;
 var SimonSays_colour_added = 0;
 var SimonSays_pattern_repeat = 0;
 var SimonSays_GameOver = 0;
-var enemy = {
-    x: 25,
-    y: 10,
-    speed: 1,
-    total: 5,
-    width: 30,
-    height: 20,
-    speed_increase: 300
-};
-var enemies = [];
+
 //disable scrolling with arrow keys and space bar
 window.onkeydown = function (e) {
     if (e.keyCode == 32 && e.target == document.body) {
@@ -133,6 +124,9 @@ var keys = [];
 var card_select = [];
 //  craete a function for the main menu
 function menu() {
+    title.innerText = "Main Menu"
+    sub.innerText = "Select a game using the arrow keys then press enter to play."
+    rules.innerText = ""
     //change which button is highlighted
     if (menu_item == 1) {
         brush.clearRect(0, 0, 500, 500)
@@ -1840,7 +1834,7 @@ function SimonSays() {
 
 // Space Invaders
 
-
+    var high_score = 0;
 function SpaceInvaders() {
     // Change the title of the webpage
     document.title = "Space Invaders";
@@ -1848,7 +1842,7 @@ function SpaceInvaders() {
     title.innerText = "Space Invaders";
     // Remove the subtitle and leave a gap
     sub.innerHTML = "How to play at the bottom of the screen";
-    rules.innerHTML = "<h3> How To Play </h3> Move the character with left and right arrow keys <br> fire projectiles with the spacebar <br> your goal is to shoot all the aliens before they reach you. <br> killing aliens gives you points, killing all the aliens respawns them <br> if they touch the ground you lose!"
+    rules.innerHTML = "<h3> How To Play </h3> Move the character with left and right arrow keys <br> fire projectiles with the spacebar <br> your goal is to shoot all the aliens before they reach you. <br> killing aliens gives you points <br> if they touch the ground you lose lives! <br> if you run out of lives you lose"
     // Clear the canvas
     brush.clearRect(0, 0, 500, 500);
     // Allow the user to go back to the main menu
@@ -1872,7 +1866,19 @@ function SpaceInvaders() {
     var lasers = [];
     var laserTotal = 3;
     var lives = 3;
-    var SI_gameover
+    var enemy = {
+    x: 25,
+    y: 10,
+    speed: 1,
+    total: 5,
+    width: 30,
+    height: 20,
+    speed_increase: 300
+};
+    var score = 0;
+
+var enemies = [];
+
 
     for (var i = 0; i < enemy.total; i++) {
         enemies.push([enemy.x, enemy.y, enemy.width, enemy.height, enemy.speed]);
@@ -1913,16 +1919,28 @@ function SpaceInvaders() {
         moveLaser();
 
         hitTest();
+        
 
     }
 
     //draw the game world
     function render() {
+        if (lives > 0) {
         drawShip();
         drawEnemies();
         drawLaser();
+        drawScore();
+        drawHighscore();
+            drawLives();
         requestAnimationFrame(gameLoop);
-    }
+        }
+        else {
+            cancelAnimationFrame(AF);
+            clearInterval(SI)
+            clearInterval(SI2)
+          SI_gameover();
+        }
+        }
 
     //game loop function
     function gameLoop() {
@@ -1930,7 +1948,22 @@ function SpaceInvaders() {
         update();
         render();
     }
+    function drawScore() {
+        brush.fillStyle = "white";
+        brush.font = "10px Arial"
+        brush.fillText("score:" + score, 10, 10)
+    }
+    function drawHighscore() {
+         brush.fillStyle = "white";
+        brush.font = "10px Arial"
+        brush.fillText("Highscore:" + high_score, canvasWidth /2 - 20, 10)
+    }
 
+    function drawLives () {
+                brush.fillStyle = "white";
+        brush.font = "10px Arial"
+        brush.fillText("lives" + lives, canvasWidth - 50, 10)
+    }
     function drawLaser() {
         //if there are lasers in the lasers array, draw them
 
@@ -1952,9 +1985,9 @@ function SpaceInvaders() {
 
     function moveEnemies() {
         for (var i = 0; i < enemies.length; i++) {
-            if (enemies[i][1] < canvasHeight) {
+            if (enemies[i][1] < canvasHeight + 20) {
                 enemies[i][1] += enemies[i][4];
-            } else if (enemies[i][1] > canvasHeight - 1) {
+            } else if (enemies[i][1] > canvasHeight) {
                 enemies[i][1] = -15
                 lives--;
                 if (lives <= 0) {
@@ -1975,6 +2008,10 @@ function SpaceInvaders() {
                     if (enemy.speed_increase >= 50) {
                         enemy.speed_increase -= 10
                     }
+                    score++;
+                    if (score > 0 && score > high_score) {
+                        high_score = score
+                    }
                     clearInterval(SI);
                     setTimeout(moveEnemies(), enemies.speed_increase)
                     clearInterval(SI2);
@@ -1991,6 +2028,7 @@ function SpaceInvaders() {
             }
         }
     }
+
 
     function moveLaser() {
         for (var i = 0; i < lasers.length; i++) {
@@ -2021,6 +2059,88 @@ function SpaceInvaders() {
     }, 1000);
 
 
+    function SI_gameover() {
+
+        brush.clearRect(0, 0, 500, 500);
+        brush.fillStyle = "black";
+        brush.fillRect(0, 0, 500, 500)
+        SI_GameOver = 1;
+        brush.font = "30px Arial";
+        brush.fillStyle = "red";
+        brush.fillText("Game Over!", 75, 40);
+        if (Game_over_menu == 1) {
+            brush.font = "10px Arial";
+            brush.fillStyle = "white"
+            brush.fillText("Quit", 75, 80);
+            brush.fillStyle = "grey";
+            brush.fillText("Try Again", 180, 80);
+
+        }
+        if (Game_over_menu == 2) {
+            brush.font = "10px Arial";
+            brush.fillStyle = "grey"
+            brush.fillText("Quit", 75, 80);
+            brush.fillStyle = "white";
+            brush.fillText("Try Again", 180, 80);
+            if (keys[13] && pressed == 1) {
+                pressed = 0;
+
+            }
+        };
+
+        AF = requestAnimationFrame(SI_gameover_options)
+
+    };
+
+    function SI_gameover_options() {
+        if (Game_over_menu == 1) {
+            if (keys[13] && pressed == 1) {
+                pressed = 0;
+                cancelAnimationFrame(AF);
+                SimonSays_colour = 5;
+                SimonSays_pattern = [];
+                SimonSays_pattern_amount = -1;
+                SimonSays_user_done = 0;
+                SimonSays_user_score = 0;
+                SimonSays_pattern_list = 0;
+                SimonSays_colour_added = 0;
+                SimonSays_pattern_repeat = 0;
+                SimonSays_GameOver = 0;
+                Game_over_menu = 1;
+                menu();
+                return;
+
+            };
+            if (keys[39] && pressed == 1) {
+                Game_over_menu = 2;
+            };
+        }
+        if (Game_over_menu == 2) {
+            if (keys[13] && pressed == 1) {
+                pressed = 0;
+                cancelAnimationFrame(AF);
+                SimonSays_colour = 5;
+                SimonSays_pattern = [];
+                SimonSays_pattern_amount = -1;
+                SimonSays_user_done = 0;
+                SimonSays_user_score = 0;
+                SimonSays_pattern_list = 0;
+                SimonSays_colour_added = 0;
+                SimonSays_pattern_repeat = 0;
+                SimonSays_GameOver = 0;
+                Game_over_menu = 1;
+                SpaceInvaders();
+                return;
+
+            };
+            if (keys[37] && pressed == 1) {
+                Game_over_menu = 1;
+            };
+        }
+        AF = requestAnimationFrame(SI_gameover())
+    }
+
 
 };
+
 AF = requestAnimationFrame(menu);
