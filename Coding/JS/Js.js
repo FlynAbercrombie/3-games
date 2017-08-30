@@ -1,7 +1,8 @@
 /* vvvvvvvvvvvvvvvvTODO listvvvvvvvvvvvvvvv
 All:
-Add hi-score
-put more into functions
+Add hi-score (1/3)
+put more into functions (1/3)
+move variables into appropriate functions(1/3)
 BlackJack:
 1.add a cash system to black jack
 2.put boxes around certain elements
@@ -16,11 +17,6 @@ BlackJack:
 SimonSays:
 
 Space Invaders:
-
-
-
-6.add score
-7.add game over when aliens touch the ground
 
 
 final touches:
@@ -48,37 +44,7 @@ var rules = document.getElementById('rules');
 var SI;
 var SI2;
 var AF;
-var BlackJack_menu_item = 1;
-var user_card = [0, 0, 0, 0, 0, 0];
-var BlackJack_user_score = 0;
-var BlackJack_user_score_added_1 = 0;
-var BlackJack_user_score_added_2 = 0;
-var BlackJack_user_score_added_3 = 0;
-var BlackJack_user_score_added_4 = 0;
-var BlackJack_user_score_added_5 = 0;
-var comp_score = 0;
-var comp_score_added_1 = 0;
-var comp_score_added_2 = 0;
-var comp_score_added_3 = 0;
-var comp_score_added_4 = 0;
-var comp_score_added_5 = 0;
-var user_ace = 0;
-var comp_ace = 0;
-var ace_entered_1 = 0;
-var ace_entered_2 = 0;
-var ace_entered_3 = 0;
-var ace_entered_4 = 0;
-var ace_entered_5 = 0;
-var shown = 0;
-var SimonSays_colour = 5;
-var SimonSays_pattern = [];
-var SimonSays_pattern_amount = -1;
-var SimonSays_user_done = 0;
-var SimonSays_user_score = 0;
-var SimonSays_pattern_list = 0;
-var SimonSays_colour_added = 0;
-var SimonSays_pattern_repeat = 0;
-var SimonSays_GameOver = 0;
+
 
 //disable scrolling with arrow keys and space bar
 window.onkeydown = function (e) {
@@ -214,6 +180,29 @@ function BlackJack() {
     //clear the canvas
     brush.clearRect(0, 0, 500, 500);
     // Allow the user to go back to the main menu
+    var BlackJack_menu_item = 1;
+var user_card = [0, 0, 0, 0, 0, 0];
+var BlackJack_user_score = 0;
+var BlackJack_user_score_added_1 = 0;
+var BlackJack_user_score_added_2 = 0;
+var BlackJack_user_score_added_3 = 0;
+var BlackJack_user_score_added_4 = 0;
+var BlackJack_user_score_added_5 = 0;
+var comp_score = 0;
+var comp_score_added_1 = 0;
+var comp_score_added_2 = 0;
+var comp_score_added_3 = 0;
+var comp_score_added_4 = 0;
+var comp_score_added_5 = 0;
+var user_ace = 0;
+var comp_ace = 0;
+var ace_entered_1 = 0;
+var ace_entered_2 = 0;
+var ace_entered_3 = 0;
+var ace_entered_4 = 0;
+var ace_entered_5 = 0;
+var shown = 0;
+    
     //variable for how many cards the user has
     var user_cards = 0;
     // make a variable to show when the user is ready
@@ -1376,6 +1365,16 @@ function SimonSays() {
     // make rules
     rules.innerHTML = '<h3>How To Play</h3> <br> if "showing pattern" is displayed at the top of the game watch which of the 4 colours gets highlighted <br> when "showing pattern" is gone use the arrow keys and enter key to enter the pattern <br> if you guessed correctly the computer will show you the last colour then a different colour <br> you must then enter the first colour and the second colour and so on. <br> you must remember the whole pattern and enter it correctly to get points'
     //clear the canvas
+    
+var SimonSays_colour = 5;
+var SimonSays_pattern = [];
+var SimonSays_pattern_amount = -1;
+var SimonSays_user_done = 0;
+var SimonSays_user_score = 0;
+var SimonSays_pattern_list = 0;
+var SimonSays_colour_added = 0;
+var SimonSays_pattern_repeat = 0;
+var SimonSays_GameOver = 0;
     // Allow the user to go back to the main menu
     cancelAnimationFrame(AF);
     brush.drawImage(SimonSays_background, 0, 0);
@@ -1834,7 +1833,8 @@ function SimonSays() {
 
 // Space Invaders
 
-    var high_score = 0;
+var high_score = 0;
+
 function SpaceInvaders() {
     // Change the title of the webpage
     document.title = "Space Invaders";
@@ -1867,17 +1867,17 @@ function SpaceInvaders() {
     var laserTotal = 3;
     var lives = 3;
     var enemy = {
-    x: 25,
-    y: 10,
-    speed: 1,
-    total: 5,
-    width: 30,
-    height: 20,
-    speed_increase: 300
-};
+        x: 25,
+        y: 10,
+        speed: 1,
+        total: 5,
+        width: 30,
+        height: 20,
+        speed_increase: 300
+    };
     var score = 0;
 
-var enemies = [];
+    var enemies = [];
 
 
     for (var i = 0; i < enemy.total; i++) {
@@ -1919,28 +1919,27 @@ var enemies = [];
         moveLaser();
 
         hitTest();
-        
+
 
     }
 
     //draw the game world
     function render() {
         if (lives > 0) {
-        drawShip();
-        drawEnemies();
-        drawLaser();
-        drawScore();
-        drawHighscore();
+            drawShip();
+            drawEnemies();
+            drawLaser();
+            drawScore();
+            drawHighscore();
             drawLives();
-        requestAnimationFrame(gameLoop);
-        }
-        else {
+            requestAnimationFrame(gameLoop);
+        } else {
             cancelAnimationFrame(AF);
             clearInterval(SI)
             clearInterval(SI2)
-          SI_gameover();
+            SI_gameover();
         }
-        }
+    }
 
     //game loop function
     function gameLoop() {
@@ -1948,22 +1947,25 @@ var enemies = [];
         update();
         render();
     }
+
     function drawScore() {
         brush.fillStyle = "white";
         brush.font = "10px Arial"
         brush.fillText("score:" + score, 10, 10)
     }
+
     function drawHighscore() {
-         brush.fillStyle = "white";
+        brush.fillStyle = "white";
         brush.font = "10px Arial"
-        brush.fillText("Highscore:" + high_score, canvasWidth /2 - 20, 10)
+        brush.fillText("Highscore:" + high_score, canvasWidth / 2 - 20, 10)
     }
 
-    function drawLives () {
-                brush.fillStyle = "white";
+    function drawLives() {
+        brush.fillStyle = "white";
         brush.font = "10px Arial"
         brush.fillText("lives" + lives, canvasWidth - 50, 10)
     }
+
     function drawLaser() {
         //if there are lasers in the lasers array, draw them
 
