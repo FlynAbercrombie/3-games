@@ -2,7 +2,6 @@
 All:
 Add hi-score (1/3)
 put more into functions (1/3)
-move variables into appropriate functions(1/3)
 BlackJack:
 1.add a cash system to black jack
 2.put boxes around certain elements
@@ -261,6 +260,192 @@ var shown = 0;
         card_select[13] = new Image();
         card_select[13].src = "../IMAGES/Cards/blank.png"
         // check for key presses
+        check_player_cards();
+        check_comp_cards();
+        // Computer points tally
+        
+        brush.font = "10px Arial"
+        brush.fillStyle = "black"
+        brush.fillText("your score:" + BlackJack_user_score, 60, 80);
+        brush.fillText("computer score:" + comp_score, 140, 80);
+        if (user_card[1].src != card_select[0].src || ace_entered_1 == 1) {
+            if (user_card[2].src != card_select[0].src || ace_entered_2 == 1) {
+                if (user_card[3].src != card_select[0].src || ace_entered_3 == 1) {
+                    if (user_card[4].src != card_select[0].src || ace_entered_4 == 1) {
+                        if (user_card[5].src != card_select[0].src || ace_entered_5 == 1) {
+                            if (BlackJack_user_score > comp_score && BlackJack_user_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("You Win!", 100, 60);
+                            };
+                            if (comp_score > BlackJack_user_score && comp_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("You Lose!", 100, 60);
+                            };
+                            if (comp_score == BlackJack_user_score && shown >= 1 && comp_score < 22 && BlackJack_user_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("Tie!", 100, 60);
+                            };
+                            if (BlackJack_user_score > 21 && comp_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("You Bust! You Lose!", 100, 60);
+                            };
+                            if (comp_score > 21 && BlackJack_user_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("Computer Bust! You Win!", 100, 60);
+                            };
+                            if (comp_score > 21 && BlackJack_user_score > 21) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("Both Bust! Tie!", 100, 60);
+                            };
+                        };
+                    };
+                };
+            };
+        };
+        if (user_cards > 0) {
+            if (BlackJack_menu_item == 1) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "white";
+                brush.fillText("Draw", 10, 60);
+                brush.fillStyle = "black";
+                brush.fillText("Done", 10, 70);
+                brush.fillText("Quit", 10, 80);
+            };
+            if (BlackJack_menu_item == 2) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "black";
+                brush.fillText("Draw", 10, 60);
+                brush.fillText("Quit", 10, 80);
+                brush.fillStyle = "white";
+                brush.fillText("Done", 10, 70);
+            };
+            if (BlackJack_menu_item == 3) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "white";
+                brush.fillText("Quit", 10, 80);
+                brush.fillStyle = "black";
+                brush.fillText("Done", 10, 70);
+                brush.fillText("Draw", 10, 60);
+            };
+        } else {
+            if (BlackJack_menu_item == 1) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "white";
+                brush.fillText("Draw", 10, 60);
+                brush.fillStyle = "black";
+                brush.fillText("Quit", 10, 80);
+            }
+            if (BlackJack_menu_item == 3) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "black";
+                brush.fillText("Draw", 10, 60);
+                brush.fillStyle = "white";
+                brush.fillText("Quit", 10, 80);
+            }
+        }
+        // create an animation frame to play the game
+        AF = requestAnimationFrame(BlackJack_Game);
+    };
+    // play BlackJack
+    function BlackJack_Game() {
+        //create an animation frame to loop back to blackjack_draw
+        addEventListener('keydown', function (e) {
+            keys[e.keyCode] = true;
+            //prevent holding down the key for a bit
+            pressed = 1;
+        }, false);
+        //delete the key from the keys array
+        addEventListener('keyup', function (e) {
+            delete keys[e.keyCode];
+        }, false);
+        //up
+        if (keys[38] && pressed == 1) {
+            pressed = 0;
+            // change the menu selection up by one
+            BlackJack_menu_item--;
+            if (user_cards == 0) {
+                if (BlackJack_menu_item == 2) {
+                    BlackJack_menu_item = 1;
+                };
+            }
+            // set menu selection to the third option if the user goes below 1\
+            if (keys[38] && BlackJack_menu_item < 1) {
+                BlackJack_menu_item = 3;
+            }
+        }
+        //down
+        if (keys[40] && pressed == 1) {
+            pressed = 0;
+            // change the menu selection down by one
+            BlackJack_menu_item++;
+            if (user_cards == 0) {
+                if (BlackJack_menu_item == 2) {
+                    BlackJack_menu_item = 3;
+                };
+            };
+            // set menu selection to the first option of the user goes above 3
+            if (keys[40] && BlackJack_menu_item > 3) {
+                BlackJack_menu_item = 1;
+            };
+        };
+        //enter
+        if (keys[13] && pressed == 1) {
+            pressed = 0;
+            if (BlackJack_menu_item == 1) {
+                user_cards++;
+                user_card[user_cards] = card_select[Math.floor(Math.random() * 13)]
+            }
+            if (BlackJack_menu_item == 2) {
+                ready = 1;
+            }
+            if (BlackJack_menu_item == 3) {
+                //clear the canvas
+                brush.clearRect(0, 0, 500, 500);
+                // reload the page to go back to the main menu
+                BlackJack_menu_item = 1;
+                user_card = [0, 0, 0, 0, 0, 0];
+                BlackJack_user_score = 0;
+                BlackJack_user_score_added_1 = 0;
+                BlackJack_user_score_added_2 = 0;
+                BlackJack_user_score_added_3 = 0;
+                BlackJack_user_score_added_4 = 0;
+                BlackJack_user_score_added_5 = 0;
+                comp_score = 0;
+                comp_score_added_1 = 0;
+                comp_score_added_2 = 0;
+                comp_score_added_3 = 0;
+                comp_score_added_4 = 0;
+                comp_score_added_5 = 0;
+                user_ace = 0;
+                comp_ace = 0;
+                ace_entered_1 = 0;
+                ace_entered_2 = 0;
+                ace_entered_3 = 0;
+                ace_entered_4 = 0;
+                ace_entered_5 = 0;
+                shown = 0;
+
+                menu();
+
+
+                return;
+
+            }
+        };
+        if (comp_card_counter > comp_cards) {
+            comp_cards++;
+            comp_card[comp_cards] = card_select[Math.floor(Math.random() * 13)]
+        }
+        AF = requestAnimationFrame(BlackJack_Draw);
+    };
+    
+    function check_player_cards() {
         if (user_cards >= 1) {
             brush.drawImage(card_select[13], 0, 0, 50, 50);
             if (ready == 1) {
@@ -804,7 +989,8 @@ var shown = 0;
                 };
             };
         };
-        // Computer points tally
+    }
+    function check_comp_cards() {
         if (comp_cards >= 1) {
             brush.drawImage(card_select[13], 0, 100, 50, 50);
             if (ready == 1) {
@@ -1171,186 +1357,8 @@ var shown = 0;
                 };
             }
         };
-        brush.font = "10px Arial"
-        brush.fillStyle = "black"
-        brush.fillText("your score:" + BlackJack_user_score, 60, 80);
-        brush.fillText("computer score:" + comp_score, 140, 80);
-        if (user_card[1].src != card_select[0].src || ace_entered_1 == 1) {
-            if (user_card[2].src != card_select[0].src || ace_entered_2 == 1) {
-                if (user_card[3].src != card_select[0].src || ace_entered_3 == 1) {
-                    if (user_card[4].src != card_select[0].src || ace_entered_4 == 1) {
-                        if (user_card[5].src != card_select[0].src || ace_entered_5 == 1) {
-                            if (BlackJack_user_score > comp_score && BlackJack_user_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("You Win!", 100, 60);
-                            };
-                            if (comp_score > BlackJack_user_score && comp_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("You Lose!", 100, 60);
-                            };
-                            if (comp_score == BlackJack_user_score && shown >= 1 && comp_score < 22 && BlackJack_user_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("Tie!", 100, 60);
-                            };
-                            if (BlackJack_user_score > 21 && comp_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("You Bust! You Lose!", 100, 60);
-                            };
-                            if (comp_score > 21 && BlackJack_user_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("Computer Bust! You Win!", 100, 60);
-                            };
-                            if (comp_score > 21 && BlackJack_user_score > 21) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("Both Bust! Tie!", 100, 60);
-                            };
-                        };
-                    };
-                };
-            };
-        };
-        if (user_cards > 0) {
-            if (BlackJack_menu_item == 1) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "white";
-                brush.fillText("Draw", 10, 60);
-                brush.fillStyle = "black";
-                brush.fillText("Done", 10, 70);
-                brush.fillText("Quit", 10, 80);
-            };
-            if (BlackJack_menu_item == 2) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "black";
-                brush.fillText("Draw", 10, 60);
-                brush.fillText("Quit", 10, 80);
-                brush.fillStyle = "white";
-                brush.fillText("Done", 10, 70);
-            };
-            if (BlackJack_menu_item == 3) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "white";
-                brush.fillText("Quit", 10, 80);
-                brush.fillStyle = "black";
-                brush.fillText("Done", 10, 70);
-                brush.fillText("Draw", 10, 60);
-            };
-        } else {
-            if (BlackJack_menu_item == 1) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "white";
-                brush.fillText("Draw", 10, 60);
-                brush.fillStyle = "black";
-                brush.fillText("Quit", 10, 80);
-            }
-            if (BlackJack_menu_item == 3) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "black";
-                brush.fillText("Draw", 10, 60);
-                brush.fillStyle = "white";
-                brush.fillText("Quit", 10, 80);
-            }
-        }
-        // create an animation frame to play the game
-        AF = requestAnimationFrame(BlackJack_Game);
-    };
-    // play BlackJack
-    function BlackJack_Game() {
-        //create an animation frame to loop back to blackjack_draw
-        addEventListener('keydown', function (e) {
-            keys[e.keyCode] = true;
-            //prevent holding down the key for a bit
-            pressed = 1;
-        }, false);
-        //delete the key from the keys array
-        addEventListener('keyup', function (e) {
-            delete keys[e.keyCode];
-        }, false);
-        //up
-        if (keys[38] && pressed == 1) {
-            pressed = 0;
-            // change the menu selection up by one
-            BlackJack_menu_item--;
-            if (user_cards == 0) {
-                if (BlackJack_menu_item == 2) {
-                    BlackJack_menu_item = 1;
-                };
-            }
-            // set menu selection to the third option if the user goes below 1\
-            if (keys[38] && BlackJack_menu_item < 1) {
-                BlackJack_menu_item = 3;
-            }
-        }
-        //down
-        if (keys[40] && pressed == 1) {
-            pressed = 0;
-            // change the menu selection down by one
-            BlackJack_menu_item++;
-            if (user_cards == 0) {
-                if (BlackJack_menu_item == 2) {
-                    BlackJack_menu_item = 3;
-                };
-            };
-            // set menu selection to the first option of the user goes above 3
-            if (keys[40] && BlackJack_menu_item > 3) {
-                BlackJack_menu_item = 1;
-            };
-        };
-        //enter
-        if (keys[13] && pressed == 1) {
-            pressed = 0;
-            if (BlackJack_menu_item == 1) {
-                user_cards++;
-                user_card[user_cards] = card_select[Math.floor(Math.random() * 13)]
-            }
-            if (BlackJack_menu_item == 2) {
-                ready = 1;
-            }
-            if (BlackJack_menu_item == 3) {
-                //clear the canvas
-                brush.clearRect(0, 0, 500, 500);
-                // reload the page to go back to the main menu
-                BlackJack_menu_item = 1;
-                user_card = [0, 0, 0, 0, 0, 0];
-                BlackJack_user_score = 0;
-                BlackJack_user_score_added_1 = 0;
-                BlackJack_user_score_added_2 = 0;
-                BlackJack_user_score_added_3 = 0;
-                BlackJack_user_score_added_4 = 0;
-                BlackJack_user_score_added_5 = 0;
-                comp_score = 0;
-                comp_score_added_1 = 0;
-                comp_score_added_2 = 0;
-                comp_score_added_3 = 0;
-                comp_score_added_4 = 0;
-                comp_score_added_5 = 0;
-                user_ace = 0;
-                comp_ace = 0;
-                ace_entered_1 = 0;
-                ace_entered_2 = 0;
-                ace_entered_3 = 0;
-                ace_entered_4 = 0;
-                ace_entered_5 = 0;
-                shown = 0;
-
-                menu();
-
-
-                return;
-
-            }
-        };
-        if (comp_card_counter > comp_cards) {
-            comp_cards++;
-            comp_card[comp_cards] = card_select[Math.floor(Math.random() * 13)]
-        }
-        AF = requestAnimationFrame(BlackJack_Draw);
-    };
+    }
+    
     // start the animation
     AF = requestAnimationFrame(BlackJack_Draw);
 };
