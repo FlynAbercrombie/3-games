@@ -30,7 +30,8 @@ if i have enough time:
 // link the canvas HTML element
 var canvas = document.getElementById('canvas');
 var brush = canvas.getContext('2d');
-// create a variable to store the option on the main menu
+// create a variable to store the option on the main menu\
+
 var menu_item = 1;
 // make a variable so their is a pause between scrolling on the main menu
 var pressed = 0;
@@ -92,6 +93,7 @@ function menu() {
     title.innerText = "Main Menu"
     sub.innerText = "Select a game using the arrow keys then press enter to play."
     rules.innerText = ""
+    
     //change which button is highlighted
     if (menu_item == 1) {
         brush.clearRect(0, 0, 500, 500)
@@ -1401,6 +1403,7 @@ function BlackJack() {
     AF = requestAnimationFrame(BlackJack_Draw);
 };
 // Simon Says
+var SimonSays_highScore = 0;
 function SimonSays() {
     //change the title of the webpage
     document.title = "Simon Says"
@@ -1451,6 +1454,7 @@ function SimonSays() {
             SimonSays_coverShowingPattern();
 
             SimonSays_drawScore();
+            SimonSays_drawHighScore();
             SimonSays_drawShowingPattern();
 
             SimonSays_draw_pattern();
@@ -1477,7 +1481,14 @@ function SimonSays() {
     function SimonSays_drawScore() {
         brush.font = "10px Arial";
         brush.fillStyle = "white";
-        brush.fillText("Your score: " + SimonSays_user_score, 8, 8);
+        brush.fillText("YOUR SCORE: " + SimonSays_user_score, 8, 8);
+    }
+    function SimonSays_drawHighScore() {
+        brush.fillStyle ="black"
+        brush.fillRect(210,0,60,8)
+                brush.font = "10px Arial";
+        brush.fillStyle = "white";
+        brush.fillText("HIGH SCORE: " + SimonSays_user_score, 195, 8);
     }
 
     function SimonSays_drawShowingPattern() {
@@ -1588,7 +1599,7 @@ function SimonSays() {
 
     function SimonSays_userColourSelect() {
         brush.fillStyle = "black";
-        brush.fillRect(110, 0, 110, 8);
+        brush.fillRect(110, 0, 71, 8);
         brush.fillRect(141, 1, 11, 10)
         switch (SimonSays_colour) {
             case 0:
@@ -1735,7 +1746,10 @@ function SimonSays() {
                                 SimonSays_user_done = 0;
                                 SimonSays_pattern_repeat = 0;
                                 SimonSays_colour_added = 0;
-                                SimonSays_user_score++;
+                                SimonSays_user_score++; //***********************************
+                                if (SimonSays_user_score > 0 && SimonSays_user_score > SimonSays_highScore) {
+                        SimonSays_highScore = SimonSays_user_score
+                    }
                             };
                         } else {
                             SimonSays_gameover();
@@ -1761,7 +1775,10 @@ function SimonSays() {
                                 SimonSays_user_done = 0;
                                 SimonSays_pattern_repeat = 0;
                                 SimonSays_colour_added = 0;
-                                SimonSays_user_score++;
+                                SimonSays_user_score++; //***********************************
+                                if (SimonSays_user_score > 0 && SimonSays_user_score > SimonSays_highScore) {
+                        SimonSays_highScore = SimonSays_user_score
+                    }
                             };
                         } else {
                             SimonSays_gameover();
@@ -1788,7 +1805,10 @@ function SimonSays() {
                                 SimonSays_user_done = 0;
                                 SimonSays_pattern_repeat = 0;
                                 SimonSays_colour_added = 0;
-                                SimonSays_user_score++;
+                                SimonSays_user_score++; //***********************************
+                                 if (SimonSays_user_score > 0 && SimonSays_user_score > SimonSays_highScore) {
+                        SimonSays_highScore = SimonSays_user_score
+                    }
                             };
                         } else {
                             SimonSays_gameover();
@@ -1815,7 +1835,10 @@ function SimonSays() {
                                 SimonSays_user_done = 0;
                                 SimonSays_pattern_repeat = 0;
                                 SimonSays_colour_added = 0;
-                                SimonSays_user_score++;
+                                SimonSays_user_score++; //***********************************
+                             if (SimonSays_user_score > 0 && SimonSays_user_score > SimonSays_highScore) {
+                        SimonSays_highScore = SimonSays_user_score
+                    }
                             };
                         } else {
                             SimonSays_gameover();
@@ -1841,6 +1864,10 @@ function SimonSays() {
         brush.font = "30px Arial";
         brush.fillStyle = "red";
         brush.fillText("Game Over!", 75, 40);
+        brush.font = "10px Arial";
+        brush.fillStyle = "white";
+        brush.fillText("Score: " + SimonSays_user_score, 135, 60)
+        brush.fillText("High Score: " + SimonSays_highScore, 125, 70)
         if (Game_over_menu == 1) {
             brush.font = "10px Arial";
             brush.fillStyle = "white"
@@ -1866,20 +1893,13 @@ function SimonSays() {
     };
 
     function SimonSays_quit_retry() {
+        
         if (Game_over_menu == 1) {
             if (keys[13] && pressed == 1) {
                 pressed = 0;
                 cancelAnimationFrame(AF);
-                SimonSays_colour = 5;
-                SimonSays_pattern = [];
-                SimonSays_pattern_amount = -1;
-                SimonSays_user_done = 0;
-                SimonSays_user_score = 0;
-                SimonSays_pattern_list = 0;
-                SimonSays_colour_added = 0;
-                SimonSays_pattern_repeat = 0;
-                SimonSays_GameOver = 0;
                 Game_over_menu = 1;
+                menu_item = 1;
                 menu();
                 return;
 
@@ -1892,15 +1912,7 @@ function SimonSays() {
             if (keys[13] && pressed == 1) {
                 pressed = 0;
                 cancelAnimationFrame(AF);
-                SimonSays_colour = 5;
-                SimonSays_pattern = [];
-                SimonSays_pattern_amount = -1;
-                SimonSays_user_done = 0;
-                SimonSays_user_score = 0;
-                SimonSays_pattern_list = 0;
-                SimonSays_colour_added = 0;
-                SimonSays_pattern_repeat = 0;
-                SimonSays_GameOver = 0;
+
                 Game_over_menu = 1;
                 SimonSays();
                 return;
@@ -1919,7 +1931,7 @@ function SimonSays() {
 
 // Space Invaders
 
-var SI_high_score = 0;
+var SI_highScore = 0;
 
 function SpaceInvaders() {
     // Change the title of the webpage
@@ -2043,7 +2055,7 @@ function SpaceInvaders() {
     function SI_drawHighscore() {
         brush.fillStyle = "white";
         brush.font = "10px Arial"
-        brush.fillText("Highscore:" + SI_high_score, canvasWidth / 2 - 20, 10)
+        brush.fillText("Highscore:" + SI_highScore, canvasWidth / 2 - 20, 10)
     }
 
     function drawLives() {
@@ -2097,8 +2109,8 @@ function SpaceInvaders() {
                         enemy.speed_increase -= 10
                     }
                     SI_score++;
-                    if (SI_score > 0 && SI_score > SI_high_score) {
-                        SI_high_score = SI_score
+                    if (SI_score > 0 && SI_score > SI_highScore) {
+                        SI_highScore = SI_score
                     }
                     clearInterval(SI);
                     setTimeout(moveEnemies(), enemies.speed_increase)
@@ -2159,7 +2171,7 @@ function SpaceInvaders() {
         brush.font = "10px Arial";
         brush.fillStyle = "white";
         brush.fillText("Score: " + SI_score, 135, 60)
-        brush.fillText("High Score: " + SI_high_score, 125, 70)
+        brush.fillText("High Score: " + SI_highScore, 125, 70)
         if (Game_over_menu == 1) {
             brush.font = "10px Arial";
             brush.fillStyle = "white"
@@ -2189,7 +2201,7 @@ function SpaceInvaders() {
             if (keys[13] && pressed == 1) {
                 pressed = 0;
                 cancelAnimationFrame(AF);
-
+                menu_item = 1;
                 Game_over_menu = 1;
                 menu();
                 return;
