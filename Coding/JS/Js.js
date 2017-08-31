@@ -1,7 +1,6 @@
 /* vvvvvvvvvvvvvvvvTODO listvvvvvvvvvvvvvvv
 All:
 Add hi-score (1/3)
-put more into functions (1/3)
 BlackJack:
 1.add a cash system to black jack
 2.put boxes around certain elements
@@ -89,6 +88,7 @@ var keys = [];
 var card_select = [];
 //  craete a function for the main menu
 function menu() {
+    document.title = "Main Menu"
     title.innerText = "Main Menu"
     sub.innerText = "Select a game using the arrow keys then press enter to play."
     rules.innerText = ""
@@ -180,28 +180,70 @@ function BlackJack() {
     brush.clearRect(0, 0, 500, 500);
     // Allow the user to go back to the main menu
     var BlackJack_menu_item = 1;
-var user_card = [0, 0, 0, 0, 0, 0];
-var BlackJack_user_score = 0;
-var BlackJack_user_score_added_1 = 0;
-var BlackJack_user_score_added_2 = 0;
-var BlackJack_user_score_added_3 = 0;
-var BlackJack_user_score_added_4 = 0;
-var BlackJack_user_score_added_5 = 0;
-var comp_score = 0;
-var comp_score_added_1 = 0;
-var comp_score_added_2 = 0;
-var comp_score_added_3 = 0;
-var comp_score_added_4 = 0;
-var comp_score_added_5 = 0;
-var user_ace = 0;
-var comp_ace = 0;
-var ace_entered_1 = 0;
-var ace_entered_2 = 0;
-var ace_entered_3 = 0;
-var ace_entered_4 = 0;
-var ace_entered_5 = 0;
-var shown = 0;
-    
+    var user_card = [0, 0, 0, 0, 0, 0];
+    var BlackJack_user_score = 0;
+    var BlackJack_user_score_added_1 = 0;
+    var BlackJack_user_score_added_2 = 0;
+    var BlackJack_user_score_added_3 = 0;
+    var BlackJack_user_score_added_4 = 0;
+    var BlackJack_user_score_added_5 = 0;
+    var comp_score = 0;
+    var comp_score_added_1 = 0;
+    var comp_score_added_2 = 0;
+    var comp_score_added_3 = 0;
+    var comp_score_added_4 = 0;
+    var comp_score_added_5 = 0;
+    var user_ace = 0;
+    var comp_ace = 0;
+    var ace_entered_1 = 0;
+    var ace_entered_2 = 0;
+    var ace_entered_3 = 0;
+    var ace_entered_4 = 0;
+    var ace_entered_5 = 0;
+    var shown = 0;
+    // store all the cards into an array
+    //ace
+    card_select[0] = new Image();
+    card_select[0].src = "../IMAGES/Cards/ace_card.png"
+    //2
+    card_select[1] = new Image();
+    card_select[1].src = "../IMAGES/Cards/2_card.png"
+    //3
+    card_select[2] = new Image();
+    card_select[2].src = "../IMAGES/Cards/3_card.png"
+    //4
+    card_select[3] = new Image();
+    card_select[3].src = "../IMAGES/Cards/4_card.png"
+    //5
+    card_select[4] = new Image();
+    card_select[4].src = "../IMAGES/Cards/5_card.png"
+    //6
+    card_select[5] = new Image();
+    card_select[5].src = "../IMAGES/Cards/6_card.png"
+    //7
+    card_select[6] = new Image();
+    card_select[6].src = "../IMAGES/Cards/7_card.png"
+    //8
+    card_select[7] = new Image();
+    card_select[7].src = "../IMAGES/Cards/8_card.png"
+    //9
+    card_select[8] = new Image();
+    card_select[8].src = "../IMAGES/Cards/9_card.png"
+    //10
+    card_select[9] = new Image();
+    card_select[9].src = "../IMAGES/Cards/10_card.png"
+    //jack
+    card_select[10] = new Image();
+    card_select[10].src = "../IMAGES/Cards/jack_card.png"
+    //queen
+    card_select[11] = new Image();
+    card_select[11].src = "../IMAGES/Cards/queen_card.png"
+    //king
+    card_select[12] = new Image();
+    card_select[12].src = "../IMAGES/Cards/king_card.png"
+    //blank
+    card_select[13] = new Image();
+    card_select[13].src = "../IMAGES/Cards/blank.png"
     //variable for how many cards the user has
     var user_cards = 0;
     // make a variable to show when the user is ready
@@ -215,146 +257,27 @@ var shown = 0;
     // make a function to draw on the canvas
     function BlackJack_Draw() {
         //draw the background
-        brush.drawImage(BlackJack_background, 0, 0)
-        // store all the cards into an array
-        //ace
-        card_select[0] = new Image();
-        card_select[0].src = "../IMAGES/Cards/ace_card.png"
-        //2
-        card_select[1] = new Image();
-        card_select[1].src = "../IMAGES/Cards/2_card.png"
-        //3
-        card_select[2] = new Image();
-        card_select[2].src = "../IMAGES/Cards/3_card.png"
-        //4
-        card_select[3] = new Image();
-        card_select[3].src = "../IMAGES/Cards/4_card.png"
-        //5
-        card_select[4] = new Image();
-        card_select[4].src = "../IMAGES/Cards/5_card.png"
-        //6
-        card_select[5] = new Image();
-        card_select[5].src = "../IMAGES/Cards/6_card.png"
-        //7
-        card_select[6] = new Image();
-        card_select[6].src = "../IMAGES/Cards/7_card.png"
-        //8
-        card_select[7] = new Image();
-        card_select[7].src = "../IMAGES/Cards/8_card.png"
-        //9
-        card_select[8] = new Image();
-        card_select[8].src = "../IMAGES/Cards/9_card.png"
-        //10
-        card_select[9] = new Image();
-        card_select[9].src = "../IMAGES/Cards/10_card.png"
-        //jack
-        card_select[10] = new Image();
-        card_select[10].src = "../IMAGES/Cards/jack_card.png"
-        //queen
-        card_select[11] = new Image();
-        card_select[11].src = "../IMAGES/Cards/queen_card.png"
-        //king
-        card_select[12] = new Image();
-        card_select[12].src = "../IMAGES/Cards/king_card.png"
-        //blank
-        card_select[13] = new Image();
-        card_select[13].src = "../IMAGES/Cards/blank.png"
-        // check for key presses
+        BlackJack_drawBackground();
+
+        // add score based on user and computer cards
         check_player_cards();
         check_comp_cards();
-        // Computer points tally
-        
-        brush.font = "10px Arial"
-        brush.fillStyle = "black"
-        brush.fillText("your score:" + BlackJack_user_score, 60, 80);
-        brush.fillText("computer score:" + comp_score, 140, 80);
-        if (user_card[1].src != card_select[0].src || ace_entered_1 == 1) {
-            if (user_card[2].src != card_select[0].src || ace_entered_2 == 1) {
-                if (user_card[3].src != card_select[0].src || ace_entered_3 == 1) {
-                    if (user_card[4].src != card_select[0].src || ace_entered_4 == 1) {
-                        if (user_card[5].src != card_select[0].src || ace_entered_5 == 1) {
-                            if (BlackJack_user_score > comp_score && BlackJack_user_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("You Win!", 100, 60);
-                            };
-                            if (comp_score > BlackJack_user_score && comp_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("You Lose!", 100, 60);
-                            };
-                            if (comp_score == BlackJack_user_score && shown >= 1 && comp_score < 22 && BlackJack_user_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("Tie!", 100, 60);
-                            };
-                            if (BlackJack_user_score > 21 && comp_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("You Bust! You Lose!", 100, 60);
-                            };
-                            if (comp_score > 21 && BlackJack_user_score < 22) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("Computer Bust! You Win!", 100, 60);
-                            };
-                            if (comp_score > 21 && BlackJack_user_score > 21) {
-                                brush.font = "10px Arial";
-                                brush.fillStyle = "black";
-                                brush.fillText("Both Bust! Tie!", 100, 60);
-                            };
-                        };
-                    };
-                };
-            };
-        };
-        if (user_cards > 0) {
-            if (BlackJack_menu_item == 1) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "white";
-                brush.fillText("Draw", 10, 60);
-                brush.fillStyle = "black";
-                brush.fillText("Done", 10, 70);
-                brush.fillText("Quit", 10, 80);
-            };
-            if (BlackJack_menu_item == 2) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "black";
-                brush.fillText("Draw", 10, 60);
-                brush.fillText("Quit", 10, 80);
-                brush.fillStyle = "white";
-                brush.fillText("Done", 10, 70);
-            };
-            if (BlackJack_menu_item == 3) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "white";
-                brush.fillText("Quit", 10, 80);
-                brush.fillStyle = "black";
-                brush.fillText("Done", 10, 70);
-                brush.fillText("Draw", 10, 60);
-            };
-        } else {
-            if (BlackJack_menu_item == 1) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "white";
-                brush.fillText("Draw", 10, 60);
-                brush.fillStyle = "black";
-                brush.fillText("Quit", 10, 80);
-            }
-            if (BlackJack_menu_item == 3) {
-                brush.font = "10px Arial";
-                brush.fillStyle = "black";
-                brush.fillText("Draw", 10, 60);
-                brush.fillStyle = "white";
-                brush.fillText("Quit", 10, 80);
-            }
-        }
+
+        //draw score in the middle of the screen
+        BlackJack_drawScore();
+
+        //determine who wins or if they go bust
+        BlackJack_winner();
+
+        //draw the menu items
+        BlackJack_drawMenuItems();
+
         // create an animation frame to play the game
         AF = requestAnimationFrame(BlackJack_Game);
     };
     // play BlackJack
     function BlackJack_Game() {
-        //create an animation frame to loop back to blackjack_draw
+        // check for key presses
         addEventListener('keydown', function (e) {
             keys[e.keyCode] = true;
             //prevent holding down the key for a bit
@@ -374,7 +297,7 @@ var shown = 0;
                     BlackJack_menu_item = 1;
                 };
             }
-            // set menu selection to the third option if the user goes below 1\
+            // set menu selection to the third option if the user goes below 1
             if (keys[38] && BlackJack_menu_item < 1) {
                 BlackJack_menu_item = 3;
             }
@@ -438,13 +361,126 @@ var shown = 0;
 
             }
         };
+        BlackJack_generateCompCards();
+        AF = requestAnimationFrame(BlackJack_Draw);
+    };
+
+    function BlackJack_generateCompCards() {
+
         if (comp_card_counter > comp_cards) {
             comp_cards++;
             comp_card[comp_cards] = card_select[Math.floor(Math.random() * 13)]
         }
-        AF = requestAnimationFrame(BlackJack_Draw);
-    };
-    
+    }
+
+    function BlackJack_drawBackground() {
+        brush.drawImage(BlackJack_background, 0, 0)
+    }
+
+    function BlackJack_drawMenuItems() {
+
+        //display the done option if the user has cards
+        if (user_cards > 0) {
+            // hightlight draw
+            if (BlackJack_menu_item == 1) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "white";
+                brush.fillText("Draw", 10, 60);
+                brush.fillStyle = "black";
+                brush.fillText("Done", 10, 70);
+                brush.fillText("Quit", 10, 80);
+            };
+            // highlight done
+            if (BlackJack_menu_item == 2) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "black";
+                brush.fillText("Draw", 10, 60);
+                brush.fillText("Quit", 10, 80);
+                brush.fillStyle = "white";
+                brush.fillText("Done", 10, 70);
+            };
+            //highlight quit
+            if (BlackJack_menu_item == 3) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "white";
+                brush.fillText("Quit", 10, 80);
+                brush.fillStyle = "black";
+                brush.fillText("Done", 10, 70);
+                brush.fillText("Draw", 10, 60);
+            };
+
+        }
+        // don't allow the user to press done if they don't have any cards.
+        else {
+            //hihglight draw
+            if (BlackJack_menu_item == 1) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "white";
+                brush.fillText("Draw", 10, 60);
+                brush.fillStyle = "black";
+                brush.fillText("Quit", 10, 80);
+            }
+            //highlight quit
+            if (BlackJack_menu_item == 3) {
+                brush.font = "10px Arial";
+                brush.fillStyle = "black";
+                brush.fillText("Draw", 10, 60);
+                brush.fillStyle = "white";
+                brush.fillText("Quit", 10, 80);
+            }
+        }
+    }
+
+    function BlackJack_winner() {
+        if (user_card[1].src != card_select[0].src || ace_entered_1 == 1) {
+            if (user_card[2].src != card_select[0].src || ace_entered_2 == 1) {
+                if (user_card[3].src != card_select[0].src || ace_entered_3 == 1) {
+                    if (user_card[4].src != card_select[0].src || ace_entered_4 == 1) {
+                        if (user_card[5].src != card_select[0].src || ace_entered_5 == 1) {
+                            if (BlackJack_user_score > comp_score && BlackJack_user_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("You Win!", 100, 60);
+                            };
+                            if (comp_score > BlackJack_user_score && comp_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("You Lose!", 100, 60);
+                            };
+                            if (comp_score == BlackJack_user_score && shown >= 1 && comp_score < 22 && BlackJack_user_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("Tie!", 100, 60);
+                            };
+                            if (BlackJack_user_score > 21 && comp_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("You Bust! You Lose!", 100, 60);
+                            };
+                            if (comp_score > 21 && BlackJack_user_score < 22) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("Computer Bust! You Win!", 100, 60);
+                            };
+                            if (comp_score > 21 && BlackJack_user_score > 21) {
+                                brush.font = "10px Arial";
+                                brush.fillStyle = "black";
+                                brush.fillText("Both Bust! Tie!", 100, 60);
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    }
+
+    function BlackJack_drawScore() {
+        brush.font = "10px Arial"
+        brush.fillStyle = "black"
+        brush.fillText("your score:" + BlackJack_user_score, 60, 80);
+        brush.fillText("computer score:" + comp_score, 140, 80);
+    }
+
     function check_player_cards() {
         if (user_cards >= 1) {
             brush.drawImage(card_select[13], 0, 0, 50, 50);
@@ -990,6 +1026,8 @@ var shown = 0;
             };
         };
     }
+
+
     function check_comp_cards() {
         if (comp_cards >= 1) {
             brush.drawImage(card_select[13], 0, 100, 50, 50);
@@ -1358,7 +1396,7 @@ var shown = 0;
             }
         };
     }
-    
+
     // start the animation
     AF = requestAnimationFrame(BlackJack_Draw);
 };
@@ -1373,16 +1411,16 @@ function SimonSays() {
     // make rules
     rules.innerHTML = '<h3>How To Play</h3> <br> if "showing pattern" is displayed at the top of the game watch which of the 4 colours gets highlighted <br> when "showing pattern" is gone use the arrow keys and enter key to enter the pattern <br> if you guessed correctly the computer will show you the last colour then a different colour <br> you must then enter the first colour and the second colour and so on. <br> you must remember the whole pattern and enter it correctly to get points'
     //clear the canvas
-    
-var SimonSays_colour = 5;
-var SimonSays_pattern = [];
-var SimonSays_pattern_amount = -1;
-var SimonSays_user_done = 0;
-var SimonSays_user_score = 0;
-var SimonSays_pattern_list = 0;
-var SimonSays_colour_added = 0;
-var SimonSays_pattern_repeat = 0;
-var SimonSays_GameOver = 0;
+
+    var SimonSays_colour = 5;
+    var SimonSays_pattern = [];
+    var SimonSays_pattern_amount = -1;
+    var SimonSays_user_done = 0;
+    var SimonSays_user_score = 0;
+    var SimonSays_pattern_list = 0;
+    var SimonSays_colour_added = 0;
+    var SimonSays_pattern_repeat = 0;
+    var SimonSays_GameOver = 0;
     // Allow the user to go back to the main menu
     cancelAnimationFrame(AF);
     brush.drawImage(SimonSays_background, 0, 0);
@@ -1409,21 +1447,49 @@ var SimonSays_GameOver = 0;
     function draw_SimonSays() {
         //draw a background
         if (SimonSays_user_done == 0) {
-            brush.font = "10px Arial";
-            brush.clearRect(110, 0, 50, 8)
-            brush.fillStyle = "black";
-            brush.fillRect(110, 0, 110, 8);
-            brush.fillRect(142, 1, 10, 10)
-            brush.fillRect(7, 1, 100, 7)
-            brush.font = "10px Arial";
-            brush.fillStyle = "white";
-            brush.fillText("Your score: " + SimonSays_user_score, 8, 8);
-            brush.fillStyle = "white";
-            brush.fillText("showing pattern", 110, 8);
-            setTimeout(function () {
-                while (SimonSays_pattern_amount >= SimonSays_pattern_list) {
 
-                    if (SimonSays_pattern[SimonSays_pattern_list] == 0) {
+            SimonSays_coverShowingPattern();
+
+            SimonSays_drawScore();
+            SimonSays_drawShowingPattern();
+
+            SimonSays_draw_pattern();
+
+
+        };
+        //create an animation frame to play the game
+        if (SimonSays_user_done == 1) {
+            SimonSays_userColourSelect();
+
+        };
+        AF = requestAnimationFrame(game_SimonSays);
+    };
+
+    function SimonSays_coverShowingPattern() {
+        brush.font = "10px Arial";
+        brush.clearRect(110, 0, 50, 8)
+        brush.fillStyle = "black";
+        brush.fillRect(110, 0, 110, 8);
+        brush.fillRect(142, 1, 10, 10)
+        brush.fillRect(7, 1, 100, 7)
+    }
+
+    function SimonSays_drawScore() {
+        brush.font = "10px Arial";
+        brush.fillStyle = "white";
+        brush.fillText("Your score: " + SimonSays_user_score, 8, 8);
+    }
+
+    function SimonSays_drawShowingPattern() {
+        brush.fillStyle = "white";
+        brush.fillText("showing pattern", 110, 8);
+    }
+
+    function SimonSays_draw_pattern() {
+        setTimeout(function () {
+            while (SimonSays_pattern_amount >= SimonSays_pattern_list) {
+                for (var i = 0; i < SimonSays_pattern.length; i++) {
+                    if (SimonSays_pattern[i] == 0) {
                         SimonSays_pattern_list++;
 
                         brush.fillStyle = "#00d600";
@@ -1445,7 +1511,7 @@ var SimonSays_GameOver = 0;
                         //draw the box
                         brush.fillRect(161, 80, 128, 63);
                     }
-                    if (SimonSays_pattern[SimonSays_pattern_list] == 1) {
+                    if (SimonSays_pattern[i] == 1) {
                         SimonSays_pattern_list++;
 
                         brush.fillStyle = "green";
@@ -1467,7 +1533,7 @@ var SimonSays_GameOver = 0;
                         //draw the box
                         brush.fillRect(161, 80, 128, 63);
                     }
-                    if (SimonSays_pattern[SimonSays_pattern_list] == 2) {
+                    if (SimonSays_pattern[i] == 2) {
                         SimonSays_pattern_list++;
 
                         brush.fillStyle = "green";
@@ -1489,7 +1555,7 @@ var SimonSays_GameOver = 0;
                         //draw the box
                         brush.fillRect(161, 80, 128, 63);
                     }
-                    if (SimonSays_pattern[SimonSays_pattern_list] == 3) {
+                    if (SimonSays_pattern[i] == 3) {
                         SimonSays_pattern_list++;
 
                         brush.fillStyle = "green";
@@ -1511,122 +1577,114 @@ var SimonSays_GameOver = 0;
                         //draw the box
                         brush.fillRect(161, 80, 128, 63);
                     }
-                    setTimeout(function () {
-                        SimonSays_user_done = 1;
-                    }, 1000);
                 }
-            }, 1000);
+
+                setTimeout(function () {
+                    SimonSays_user_done = 1;
+                }, 1000);
+            }
+        }, 1000);
+    }
+
+    function SimonSays_userColourSelect() {
+        brush.fillStyle = "black";
+        brush.fillRect(110, 0, 110, 8);
+        brush.fillRect(141, 1, 11, 10)
+        switch (SimonSays_colour) {
+            case 0:
+                // first box
+                // change the colour of the box to green
+                brush.fillStyle = "#00d600";
+                // draw the box
+                brush.fillRect(10, 9, 128, 63);
+                // second box
+                // change the colour of the box to red
+                brush.fillStyle = "#6d0000";
+                // draw the box
+                brush.fillRect(161, 9, 128, 63);
+                // third box
+                // change the colour of the box to yellow
+                brush.fillStyle = "#6c6c00";
+                // draw the box
+                brush.fillRect(10, 80, 128, 63);
+                // fourth box
+                //change the colour of the box to blue
+                brush.fillStyle = "#000064";
+                //draw the box
+                brush.fillRect(161, 80, 128, 63);
+                break;
+            case 1:
+                // first box
+                // change the colour of the box to green
+                brush.fillStyle = "green";
+                // draw the box
+                brush.fillRect(10, 9, 128, 63);
+                // second box
+                // change the colour of the box to red
+                brush.fillStyle = "#ff0000";
+                // draw the box
+                brush.fillRect(161, 9, 128, 63);
+                // third box
+                // change the colour of the box to yellow
+                brush.fillStyle = "#6c6c00";
+                // draw the box
+                brush.fillRect(10, 80, 128, 63);
+                // fourth box
+                //change the colour of the box to blue
+                brush.fillStyle = "#000064";
+                //draw the box
+                brush.fillRect(161, 80, 128, 63);
+                break;
+            case 2:
+                // first box
+                // change the colour of the box to green
+                brush.fillStyle = "green";
+                // draw the box
+                brush.fillRect(10, 9, 128, 63);
+                // second box
+                // change the colour of the box to red
+                brush.fillStyle = "#6d0000";
+                // draw the box
+                brush.fillRect(161, 9, 128, 63);
+                // third box
+                // change the colour of the box to yellow
+                brush.fillStyle = "#ffff00";
+                // draw the box
+                brush.fillRect(10, 80, 128, 63);
+                // fourth box
+                //change the colour of the box to blue
+                brush.fillStyle = "#000064";
+                //draw the box
+                brush.fillRect(161, 80, 128, 63);
+                break;
+            case 3:
+                // first box
+                // change the colour of the box to green
+                brush.fillStyle = "green";
+                // draw the box
+                brush.fillRect(10, 9, 128, 63);
+                // second box
+                // change the colour of the box to red
+                brush.fillStyle = "#6d0000";
+                // draw the box
+                brush.fillRect(161, 9, 128, 63);
+                // third box
+                // change the colour of the box to yellow
+                brush.fillStyle = "#6c6c00";
+                // draw the box
+                brush.fillRect(10, 80, 128, 63);
+                // fourth box
+                //change the colour of the box to blue
+                brush.fillStyle = "#0000ff";
+                //draw the box
+                brush.fillRect(161, 80, 128, 63);
+                break;
         };
-        //create an animation frame to play the game
-        if (SimonSays_user_done == 1) {
-            brush.fillStyle = "black";
-            brush.fillRect(110, 0, 110, 8);
-            brush.fillRect(141, 1, 11, 10)
-            switch (SimonSays_colour) {
-                case 0:
-                    // first box
-                    // change the colour of the box to green
-                    brush.fillStyle = "#00d600";
-                    // draw the box
-                    brush.fillRect(10, 9, 128, 63);
-                    // second box
-                    // change the colour of the box to red
-                    brush.fillStyle = "#6d0000";
-                    // draw the box
-                    brush.fillRect(161, 9, 128, 63);
-                    // third box
-                    // change the colour of the box to yellow
-                    brush.fillStyle = "#6c6c00";
-                    // draw the box
-                    brush.fillRect(10, 80, 128, 63);
-                    // fourth box
-                    //change the colour of the box to blue
-                    brush.fillStyle = "#000064";
-                    //draw the box
-                    brush.fillRect(161, 80, 128, 63);
-                    break;
-                case 1:
-                    // first box
-                    // change the colour of the box to green
-                    brush.fillStyle = "green";
-                    // draw the box
-                    brush.fillRect(10, 9, 128, 63);
-                    // second box
-                    // change the colour of the box to red
-                    brush.fillStyle = "#ff0000";
-                    // draw the box
-                    brush.fillRect(161, 9, 128, 63);
-                    // third box
-                    // change the colour of the box to yellow
-                    brush.fillStyle = "#6c6c00";
-                    // draw the box
-                    brush.fillRect(10, 80, 128, 63);
-                    // fourth box
-                    //change the colour of the box to blue
-                    brush.fillStyle = "#000064";
-                    //draw the box
-                    brush.fillRect(161, 80, 128, 63);
-                    break;
-                case 2:
-                    // first box
-                    // change the colour of the box to green
-                    brush.fillStyle = "green";
-                    // draw the box
-                    brush.fillRect(10, 9, 128, 63);
-                    // second box
-                    // change the colour of the box to red
-                    brush.fillStyle = "#6d0000";
-                    // draw the box
-                    brush.fillRect(161, 9, 128, 63);
-                    // third box
-                    // change the colour of the box to yellow
-                    brush.fillStyle = "#ffff00";
-                    // draw the box
-                    brush.fillRect(10, 80, 128, 63);
-                    // fourth box
-                    //change the colour of the box to blue
-                    brush.fillStyle = "#000064";
-                    //draw the box
-                    brush.fillRect(161, 80, 128, 63);
-                    break;
-                case 3:
-                    // first box
-                    // change the colour of the box to green
-                    brush.fillStyle = "green";
-                    // draw the box
-                    brush.fillRect(10, 9, 128, 63);
-                    // second box
-                    // change the colour of the box to red
-                    brush.fillStyle = "#6d0000";
-                    // draw the box
-                    brush.fillRect(161, 9, 128, 63);
-                    // third box
-                    // change the colour of the box to yellow
-                    brush.fillStyle = "#6c6c00";
-                    // draw the box
-                    brush.fillRect(10, 80, 128, 63);
-                    // fourth box
-                    //change the colour of the box to blue
-                    brush.fillStyle = "#0000ff";
-                    //draw the box
-                    brush.fillRect(161, 80, 128, 63);
-                    break;
-            };
-        };
-        AF = requestAnimationFrame(game_SimonSays);
-    };
+    }
     // play Simon Says
     function game_SimonSays() {
-        if (SimonSays_user_done == 0 && SimonSays_colour_added != 1) {
-            SimonSays_pattern_amount++;
-            SimonSays_user_done = 0;
-            do {
-                SimonSays_pattern[SimonSays_pattern_amount] = Math.floor(Math.random() * 4);
-            } while (SimonSays_pattern[SimonSays_pattern_amount] == SimonSays_pattern[SimonSays_pattern_amount - 1])
-            SimonSays_colour_added = 1;
-            SimonSays_pattern_list = 0;
+        SimonSays_addColour();
 
-        };
         if (SimonSays_user_done == 1) {
             // check for key presses
             addEventListener('keydown', function (e) {
@@ -1638,6 +1696,24 @@ var SimonSays_GameOver = 0;
             addEventListener('keyup', function (e) {
                 delete keys[e.keyCode];
             }, false);
+            SimonSays_changeColour();
+
+        };
+
+        function SimonSays_addColour() {
+            if (SimonSays_user_done == 0 && SimonSays_colour_added != 1) {
+                SimonSays_pattern_amount++;
+                SimonSays_user_done = 0;
+                do {
+                    SimonSays_pattern[SimonSays_pattern_amount] = Math.floor(Math.random() * 4);
+                } while (SimonSays_pattern[SimonSays_pattern_amount] == SimonSays_pattern[SimonSays_pattern_amount - 1])
+                SimonSays_colour_added = 1;
+                SimonSays_pattern_list = 0;
+
+            };
+        }
+
+        function SimonSays_changeColour() {
             //right
             switch (SimonSays_colour) {
                 case 0:
@@ -1747,7 +1823,9 @@ var SimonSays_GameOver = 0;
                     };
                     break;
             }
-        };
+        }
+
+
         if (SimonSays_GameOver != 1) {
             //create an animation frame to loop back to draw SimonSays
             AF = requestAnimationFrame(draw_SimonSays);
@@ -1841,7 +1919,7 @@ var SimonSays_GameOver = 0;
 
 // Space Invaders
 
-var high_score = 0;
+var SI_high_score = 0;
 
 function SpaceInvaders() {
     // Change the title of the webpage
@@ -1883,7 +1961,7 @@ function SpaceInvaders() {
         height: 20,
         speed_increase: 300
     };
-    var score = 0;
+    var SI_score = 0;
 
     var enemies = [];
 
@@ -1937,8 +2015,8 @@ function SpaceInvaders() {
             drawShip();
             drawEnemies();
             drawLaser();
-            drawScore();
-            drawHighscore();
+            SI_drawScore();
+            SI_drawHighscore();
             drawLives();
             requestAnimationFrame(gameLoop);
         } else {
@@ -1956,16 +2034,16 @@ function SpaceInvaders() {
         render();
     }
 
-    function drawScore() {
+    function SI_drawScore() {
         brush.fillStyle = "white";
         brush.font = "10px Arial"
-        brush.fillText("score:" + score, 10, 10)
+        brush.fillText("score:" + SI_score, 10, 10)
     }
 
-    function drawHighscore() {
+    function SI_drawHighscore() {
         brush.fillStyle = "white";
         brush.font = "10px Arial"
-        brush.fillText("Highscore:" + high_score, canvasWidth / 2 - 20, 10)
+        brush.fillText("Highscore:" + SI_high_score, canvasWidth / 2 - 20, 10)
     }
 
     function drawLives() {
@@ -2018,9 +2096,9 @@ function SpaceInvaders() {
                     if (enemy.speed_increase >= 50) {
                         enemy.speed_increase -= 10
                     }
-                    score++;
-                    if (score > 0 && score > high_score) {
-                        high_score = score
+                    SI_score++;
+                    if (SI_score > 0 && SI_score > SI_high_score) {
+                        SI_high_score = SI_score
                     }
                     clearInterval(SI);
                     setTimeout(moveEnemies(), enemies.speed_increase)
@@ -2080,13 +2158,14 @@ function SpaceInvaders() {
         brush.fillText("Game Over!", 75, 40);
         brush.font = "10px Arial";
         brush.fillStyle = "white";
-        brush.fillText("Score: " + score, 125, 60)
+        brush.fillText("Score: " + SI_score, 135, 60)
+        brush.fillText("High Score: " + SI_high_score, 125, 70)
         if (Game_over_menu == 1) {
             brush.font = "10px Arial";
             brush.fillStyle = "white"
             brush.fillText("Quit", 75, 80);
             brush.fillStyle = "grey";
-            brush.fillText("Try Again", 180, 80);
+            brush.fillText("Try Again", 200, 80);
 
         }
         if (Game_over_menu == 2) {
@@ -2094,7 +2173,7 @@ function SpaceInvaders() {
             brush.fillStyle = "grey"
             brush.fillText("Quit", 75, 80);
             brush.fillStyle = "white";
-            brush.fillText("Try Again", 180, 80);
+            brush.fillText("Try Again", 200, 80);
             if (keys[13] && pressed == 1) {
                 pressed = 0;
 
@@ -2110,15 +2189,7 @@ function SpaceInvaders() {
             if (keys[13] && pressed == 1) {
                 pressed = 0;
                 cancelAnimationFrame(AF);
-                SimonSays_colour = 5;
-                SimonSays_pattern = [];
-                SimonSays_pattern_amount = -1;
-                SimonSays_user_done = 0;
-                SimonSays_user_score = 0;
-                SimonSays_pattern_list = 0;
-                SimonSays_colour_added = 0;
-                SimonSays_pattern_repeat = 0;
-                SimonSays_GameOver = 0;
+
                 Game_over_menu = 1;
                 menu();
                 return;
@@ -2132,15 +2203,7 @@ function SpaceInvaders() {
             if (keys[13] && pressed == 1) {
                 pressed = 0;
                 cancelAnimationFrame(AF);
-                SimonSays_colour = 5;
-                SimonSays_pattern = [];
-                SimonSays_pattern_amount = -1;
-                SimonSays_user_done = 0;
-                SimonSays_user_score = 0;
-                SimonSays_pattern_list = 0;
-                SimonSays_colour_added = 0;
-                SimonSays_pattern_repeat = 0;
-                SimonSays_GameOver = 0;
+
                 Game_over_menu = 1;
                 SpaceInvaders();
                 return;
@@ -2150,7 +2213,7 @@ function SpaceInvaders() {
                 Game_over_menu = 1;
             };
         }
-        AF = requestAnimationFrame(SI_gameover())
+        AF = requestAnimationFrame(SI_gameover)
     }
 
 
