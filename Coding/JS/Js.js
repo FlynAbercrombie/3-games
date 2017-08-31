@@ -1,6 +1,6 @@
 /* vvvvvvvvvvvvvvvvTODO listvvvvvvvvvvvvvvv
 All:
-Add hi-score (1/3)
+Add hi-score (2/3)
 BlackJack:
 1.add a cash system to black jack
 2.put boxes around certain elements
@@ -1488,7 +1488,7 @@ function SimonSays() {
         brush.fillRect(210,0,60,8)
                 brush.font = "10px Arial";
         brush.fillStyle = "white";
-        brush.fillText("HIGH SCORE: " + SimonSays_user_score, 195, 8);
+        brush.fillText("HIGH SCORE: " + SimonSays_highScore, 195, 8);
     }
 
     function SimonSays_drawShowingPattern() {
